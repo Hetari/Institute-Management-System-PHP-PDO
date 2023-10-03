@@ -1,0 +1,168 @@
+/* Login */
+
+:root {
+  /* Colors */
+  /* --light-mint: #4ee1a0; */
+  --light-mint: #3bd96a;
+  --dark-mint: #3fc28b;
+  --red: #ff6f5b;
+  --bg-body: #151515;
+  --white: #fff;
+  /* Sidebar */
+  --body-color: #e8e1f0;
+  --sidebar-color: #fff;
+  --primary-color: #3fc28b;
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #ddd;
+  --text-color: #383838;
+  --text-color-2: #d9d9d9;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease-in;
+  --icon-width: 50px;
+}
+
+ul.nav-pills.log li.nav-item a.active {
+  /* background: radial-gradient(var(--text-color), var(--bg-body)); */
+  background-color: var(--bg-body);
+}
+
+li.nav-item a {
+  text-decoration: none;
+}
+
+ul.nav-pills.log li.nav-item a {
+  color: var(--bg-body);
+}
+
+ul.nav-pills.log li.nav-item a.active {
+  color: var(--sidebar-color) !important;
+}
+
+.tab-pane form input.btn:hover {
+  color: var(--body-color) !important;
+  background-color: var(--bg-body);
+  border: 0;
+}
+
+/*  */
+body {
+  min-height: 100vh;
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(
+      650px circle at 0% 0%,
+      hsl(135, 60%, 45%) 15%,
+      hsl(135, 60%, 40%) 35%,
+      hsl(135, 60%, 30%) 75%,
+      hsl(135, 60%, 29%) 80%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1050px circle at 100% 100%,
+      hsl(135, 60%, 55%) 15%,
+      hsl(135, 60%, 40%) 35%,
+      hsl(135, 60%, 30%) 75%,
+      hsl(135, 60%, 29%) 80%,
+      transparent 100%
+    );
+}
+
+section,
+div.container {
+  min-height: 100vh !important;
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -50px;
+  left: -130px;
+  background: radial-gradient(var(--text-color), var(--bg-body));
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -160px;
+  right: -90px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(var(--text-color), var(--bg-body));
+  overflow: hidden;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.75) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+
+/*  */
+.password-strength-group .password-strength-meter {
+  width: 100%;
+  transition: height 0.3s;
+  display: flex;
+  justify-content: stretch;
+}
+
+.password-strength-group .password-strength-meter .meter-block {
+  height: 4px;
+  background: #ccc;
+  margin-right: 6px;
+  flex-grow: 1;
+  transition: background-color 0.5s;
+}
+
+.password-strength-group .password-strength-meter .meter-block:last-child {
+  margin: 0;
+}
+
+.password-strength-group .password-strength-message {
+  font-weight: 20px;
+  height: 1em;
+  text-align: right;
+  transition: all 0.5s;
+  margin-top: 3px;
+  position: relative;
+}
+
+.password-strength-group .password-strength-message .message-item {
+  font-size: 120px;
+  position: absolute;
+  right: 0;
+  opacity: 0 !important;
+  transition: opacity 1s;
+}
+
+.password-strength-group[data-strength="1"]
+  .password-strength-meter
+  .meter-block:nth-child(-n + 1) {
+  background: #cc3d04;
+  transition: background-color 0.5s;
+}
+
+.password-strength-group[data-strength="2"]
+  .password-strength-meter
+  .meter-block:nth-child(-n + 2) {
+  background: #ffc43b;
+  transition: background-color 0.5s;
+}
+
+.password-strength-group[data-strength="3"]
+  .password-strength-meter
+  .meter-block:nth-child(-n + 3) {
+  background: #9ea60a;
+  transition: background-color 0.5s;
+}
+
+.password-strength-group[data-strength="4"]
+  .password-strength-meter
+  .meter-block:nth-child(-n + 4) {
+  background: #289116;
+  transition: background-color 0.5s;
+}
+
+/* .password-strength-group[data-strength="4"]
+  .password-strength-message
+  .message-item:nth-child(4) {
+  opacity: 1;
+  transition: background-color 0.5s;
+} */
