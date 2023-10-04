@@ -210,8 +210,8 @@ $lname = $nameParts[1];
 
                 <div class="my-2 row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
-                        <a class="btn btn-outline-danger m-auto">Cancel</a>
-                        <input type="submit" name="update-user-btn" value="Update" class="btn new-btn m-auto"></input>
+                        <a class="btn btn-danger m-auto">Cancel</a>
+                        <input type="submit" name="update-user-btn" value="Update" class="btn btn-success new-btn m-auto"></input>
                     </div>
                 </div>
             </form>
