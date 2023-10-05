@@ -52,7 +52,7 @@ function add($table, ...$args)
 
         // Prepare the SQL statement
         $columns = implode(', ', $columns);
-        $placeholders = rtrim(str_repeat('?, ', count($args) / 2), ', ');
+        $placeholders = rtrim(str_repeat('?, ', count($values)), ', ');
         $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
         $stmt = $con->prepare($sql);
 
