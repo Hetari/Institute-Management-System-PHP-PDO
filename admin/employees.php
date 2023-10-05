@@ -119,236 +119,44 @@ if (isset($_SESSION['message'])) {
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <!-- <form action="employees_conf.php" method="post" class="row needs-validation" novalidate>
-    <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-        <label for="fname" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-        <div id="fnameFeedback" class="invalid-feedback">
-            Write your first name correctly!
-        </div>
-    </div>
-
-    <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-        <label for="lname" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lname" name="lname" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-        <div id="lnameFeedback" class="invalid-feedback">
-            Write your last name correctly!
-        </div>
-    </div>
-
-    <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-        <label class="form-label" for="phone"></label>
-        <input type="tel" id="phone" class="form-control" placeholder="7xxxxxxxx" name="phone" />
-        <div id="phoneFeedback" class="invalid-feedback">
-            Write your number correctly!
-        </div>
-    </div>
-
-    <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
-        <div id="usernameFeedback" class="invalid-feedback">
-            Please write a valid username.
-        </div>
-    </div>
-
-    <div class="my-2 col-lg-4 col-md-4 col-sm-3 form-outline">
-        <label for="email" class="form-label">Email address</label>
-        <input type="text" class="form-control" id="email" aria-describedby="emailHelp" autocomplete="off" placeholder="name@domain.com" name="email" required>
-        <div id="emailHelp" class="form-text">
-        </div>
-        <small class="form-text text-danger invalid-feedback">Email must be valid!</small>
-    </div>
-
-    <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-        <label for="gender" class="form-label">Gender</label>
-        <select name="gender" class="form-select">
-            <option selected disabled>You are...</option>
-            <option value="1">Male</option>
-            <option value="2">Female</option>
-            <option value="3">Don't mention it</option>
-        </select>
-    </div>
-
-    <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-        <label for="role" class="form-label">Role</label>
-        <select name="role" class="form-select">
-            <option selected disabled>The role is...</option>
-            <?php
-            $all_roles = select("roles");
-
-            // print_r($role);
-            foreach ($all_roles as $arr => $values) {
-                // foreach ($arr as $key => $value) {
-                echo "<option value=\"{$values['id']}\">{$values['name']}</option>";
-                // }
-            }
-            ?>
-        </select>
-    </div>
-
-    <div class="col-lg-1 col-md-1 col-sm-2 form-check mt-5">
-        <div class="form-check">
-            <input name="active" class="form-check-input" checked type="checkbox" id="flexCheckDefault">
-            <label class="form-check-label text-black" for="flexCheckDefault">
-                Active
-            </label>
-        </div>
-        <div class="invalid-feedback">
-            You must tell the account is active or not!
-        </div>
-    </div>
-
-    <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-        <label class="form-label" for="salary">salary</label>
-        <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
-    </div>
-
-    <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-        <label class="form-label" for="password">Password</label>
-        <input name="password" type="password" class="form-control" autocomplete="off" id="password" aria-describedby="passwordHelp" required />
-    </div>
-
-    <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-        <label class="form-label" for="conPassword">Conform password</label>
-        <input name="conPassword" type="password" class="form-control" autocomplete="off" id="conPassword" aria-describedby="conPasswordHelp" value="" required />
-        <div id="conPasswordFeedback" class="invalid-feedback">
-            Doesn't match!
-        </div>
-    </div>
-
-    <div class="password-strength-group col-lg-3 col-md-3 col-sm-6 mt-5 pt-1" data-strength="">
-        <div id="password-strength-meter" class="mb-4 mt-1 password-strength-meter">
-            <div class="meter-block"></div>
-            <div class="meter-block"></div>
-            <div class="meter-block"></div>
-            <div class="meter-block"></div>
-        </div>
-    </div>
-
-    <div class="my-2 row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-            <a class="btn btn-dark">Add from users</a>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end">
-            <a class="btn btn-danger">Cancel</a>
-            <a class="btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Are you sure of the data that you want to save it?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="add-user-btn" class="btn btn-success fw-bold">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form> -->
             <form action="employees_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-                    <label for="fname" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="fnameFeedback" class="invalid-feedback">
-                        Write your first name correctly!
-                    </div>
-                </div>
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-                    <label for="lname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lname" name="lname" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="lnameFeedback" class="invalid-feedback">
-                        Write your last name correctly!
-                    </div>
-                </div>
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-                    <label class="form-label" for="phone"></label>
-                    <input type="tel" id="phone" class="form-control" placeholder="7xxxxxxxx" name="phone" />
-                    <div id="phoneFeedback" class="invalid-feedback">
-                        Write your number correctly!
-                    </div>
-                </div>
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                    <div id="usernameFeedback" class="invalid-feedback">
-                        Please write a valid username.
-                    </div>
-                </div>
-                <div class="my-2 col-lg-4 col-md-4 col-sm-3 form-outline">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" autocomplete="off" placeholder="name@domain.com" name="email" required>
-                    <div id="emailHelp" class="form-text">
-                    </div>
-                    <small class="form-text text-danger invalid-feedback">Email must be valid!</small>
-                </div>
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
                     <label for="gender" class="form-label">Gender</label>
-                    <select name="gender" class="form-select">
-                        <option selected disabled>You are...</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Don't mention it</option>
+                    <link rel="stylesheet" href="./assets/css/select2.min.css">
+                    <link rel="stylesheet" href="./assets/css/select2-bootstrap-5-theme.min.css">
+                    <script src="./assets/js/select2.min.js"></script>
+
+                    <select class="form-select" id="single-select-clear-field" data-placeholder="Choose one thing">
+                        <option></option>
+                        <?php
+                        $all_users = select("users");
+                        foreach ($all_users as $key => $value) {
+                        ?>
+                            <option value="<?= $value['ID'] ?>"> <?= $value['Name'] ?></option>
+                        <?php } ?>
                     </select>
+
+                    <script>
+                        $('#single-select-clear-field').select2({
+                            theme: "bootstrap-5",
+                            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                            placeholder: $(this).data('placeholder'),
+                            allowClear: true
+                        });
+                    </script>
                 </div>
-                <div class="col-lg-1 col-md-1 col-sm-2 form-check mt-5">
-                    <div class="form-check">
-                        <input name="active" class="form-check-input" checked type="checkbox" id="flexCheckDefault">
-                        <label class="form-check-label text-black" for="flexCheckDefault">
-                            Active
-                        </label>
-                    </div>
-                    <div class="invalid-feedback">
-                        You must tell the account is active or not!
-                    </div>
-                </div>
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="salary">Salary</label>
                     <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
                 </div>
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
+
+                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="address">Address</label>
                     <input name="address" type="text" class="form-control" autocomplete="off" id="address" />
                 </div>
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-                    <label class="form-label" for="join_date">Join Date</label>
-                    <input name="join_date" type="date" class="form-control" autocomplete="off" id="join_date" />
-                </div>
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-                    <label class="form-label" for="enrolled_course_id">Enrolled Course ID</label>
-                    <input name="enrolled_course_id" type="text" class="form-control" autocomplete="off" id="enrolled_course_id" />
-                </div>
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-                    <label class="form-label" for="password">Password</label>
-                    <input name="password" type="password" class="form-control" autocomplete="off" id="password" aria-describedby="passwordHelp" required />
-                </div>
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-                    <label class="form-label" for="conPassword">Confirm password</label>
-                    <input name="conPassword" type="password" class="form-control" autocomplete="off" id="conPassword" aria-describedby="conPasswordHelp" value="" required />
-                    <div id="conPasswordFeedback" class="invalid-feedback">
-                        Doesn't match!
-                    </div>
-                </div>
-                <div class="password-strength-group col-lg-3 col-md-3 col-sm-6 mt-5 pt-1" data-strength="">
-                    <div id="password-strength-meter" class="mb-4 mt-1 password-strength-meter">
-                        <div class="meter-block"></div>
-                        <div class="meter-block"></div>
-                        <div class="meter-block"></div>
-                        <div class="meter-block"></div>
-                    </div>
-                </div>
+
                 <div class="my-2 row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <a class="btn btn-dark">Add from users</a>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end">
                         <a class="btn btn-danger">Cancel</a>
                         <a class="btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
                     </div>
@@ -373,6 +181,7 @@ if (isset($_SESSION['message'])) {
             </form>
         </div>
     </div>
+
 
     <div class="container-fluid p-4">
         <div class="row">
@@ -493,100 +302,7 @@ if (isset($_SESSION['message'])) {
             </div>
         </div>
     </div>
-    <!-- <div class="container-fluid p-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="card mb-4">
-                    <div class="card-header pb-0">
-                        <h6>
-                            <?= ucwords(basename($_SERVER['PHP_SELF'], ".php")) ?>
-                        </h6>
-                    </div>
-                    <div class="card-body ">
-                        <div class="table-responsive">
-                            <table id="table" class="table table-striped table-hover table-bordered align-items-center mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Name
-                                        </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            username
-                                        </th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status
-                                        </th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Phone
-                                        </th>
-                                        <th class="text-secondary opacity-7">
-                                            Actions
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $all_users = select("users");
-                                    foreach ($all_users as $key => $value) {
-                                        $id = encrypt_machine("encrypt", $value['ID']);
-                                    ?>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="./assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">
-                                                            <?= $value['Name'] ?>
-                                                        </h6>
-                                                        <p class="text-xs text-secondary mb-0">
-                                                            <?= $value['Gender'] == 1 ? "Male" : "Female" ?>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">
-                                                    <?= $value['Username'] ?>
-                                                </p>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <?= $value['Email'] ?>
-                                                </p>
-                                            </td>
-                                            <?php ($value['Is_active'] == 1) ? $color = "success" : $color = "danger" ?>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-<?= $color ?>">
-                                                    <?php ($value['Is_active'] == 1) ? $state = "Online" : $state = "Offline";
-                                                    echo $state;
-                                                    ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Phone'] ?>
-                                                </span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                    <?php
-                                                    ?>
-                                                    <a href="update users.php?id=<?= $id ?>">Edit</a>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php }; ?>
-                                </tbody>
-                            </table>
-                            <script>
-                                new DataTable('#table');
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </main>
 <?php include_once("includes/footer.php"); ?>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
