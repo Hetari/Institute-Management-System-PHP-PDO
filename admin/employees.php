@@ -182,7 +182,6 @@ if (isset($_SESSION['message'])) {
         </div>
     </div>
 
-
     <div class="container-fluid p-4">
         <div class="row">
             <div class="col-12">
@@ -201,27 +200,21 @@ if (isset($_SESSION['message'])) {
                                             Name
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Gender
+                                            username
                                         </th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Salary
+                                            Status
                                         </th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Phone
                                         </th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Date of hire
+                                            Salary
                                         </th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Email
+                                            Join date
                                         </th>
-                                        <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Address
-                                        </th> -->
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Join Date
-                                        </th>
-                                        <th class="text-secondary opacity-7">
                                             Actions
                                         </th>
                                     </tr>
@@ -229,8 +222,13 @@ if (isset($_SESSION['message'])) {
                                 <tbody>
                                     <?php
                                     $all_employees = select("employees");
+
                                     foreach ($all_employees as $key => $value) {
                                         $id = encrypt_machine("encrypt", $value['ID']);
+                                        $conditions = array(
+                                            array("id" => ["=", $value['User_id']])
+                                        );
+                                        $users = select("users", $conditions)[0];
                                     ?>
                                         <tr>
                                             <td>
@@ -240,57 +238,57 @@ if (isset($_SESSION['message'])) {
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">
-                                                            <?= $value['Name'] ?>
+                                                            <?= $users['Name'] ?>
                                                         </h6>
                                                         <p class="text-xs text-secondary mb-0">
-                                                            <?= $value['Gender'] == 1 ? "Male" : "Female" ?>
+                                                            <?= $users['Gender'] == 1 ? "Male" : "Female" ?>
                                                         </p>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    <?= $users['Username'] ?>
+                                                </p>
                                                 <p class="text-xs text-secondary mb-0">
-                                                    <?= $value['Gender'] == 1 ? "Male" : "Female" ?>
+                                                    <?= $users['Email'] ?>
                                                 </p>
                                             </td>
+                                            <?php ($users['Is_active'] == 1) ? $color = "success" : $color = "danger" ?>
+                                            <td class="align-middle text-center text-sm">
+                                                <span class="badge badge-sm bg-gradient-<?= $color ?>">
+                                                    <?php ($users['Is_active'] == 1) ? $state = "Online" : $state = "Offline";
+                                                    echo $state;
+                                                    ?>
+                                                </span>
+                                            </td>
+
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    <?= $users['Phone'] ?>
+                                                </span>
+                                            </td>
+
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
                                                     <?= $value['Salary'] ?>
                                                 </span>
                                             </td>
+
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Phone'] ?>
+                                                    <?= $value['Join_date'] ?>
                                                 </span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['DOH'] ?>
-                                                </span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Email'] ?>
-                                                </span>
-                                            </td>
-                                            <!-- <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?php # $value['Address'] 
-                                                    ?>
-                                                </span>
-                                            </td> -->
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Join Date'] ?>
-                                                </span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit employee">
-                                                    <a href="update_employees.php?id=<?= $id ?>">Edit</a>
+                                                <a href="update employees.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-warning text-decoration-none">Edit</a>
+                                                </a>
+                                                <a href="delete_employees.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
                                                 </a>
                                             </td>
                                         </tr>
-                                    <?php }; ?>
+                                    <?php };
+                                    ?>
                                 </tbody>
                             </table>
                             <script>
@@ -304,5 +302,3 @@ if (isset($_SESSION['message'])) {
     </div>
 </main>
 <?php include_once("includes/footer.php"); ?>
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
