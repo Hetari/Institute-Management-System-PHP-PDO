@@ -302,7 +302,7 @@ if (isset($_SESSION['message'])) {
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Phone
                                         </th>
-                                        <th class="text-secondary opacity-7">
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Actions
                                         </th>
                                     </tr>
@@ -351,11 +351,8 @@ if (isset($_SESSION['message'])) {
                                                     <?= $value['Phone'] ?>
                                                 </span>
                                             </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                    <?php
-                                                    ?>
-                                                    <a href="update users.php?id=<?= $id ?>">Edit</a>
+                                            <td class="align-middle text-center">
+                                                <a href="update users.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-warning text-decoration-none">Edit</a>
                                                 </a>
                                             </td>
                                         </tr>
