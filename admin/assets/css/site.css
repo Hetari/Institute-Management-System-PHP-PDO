@@ -449,6 +449,16 @@ main {
 #table_wrapper {
   width: 99% !important;
 }
+
+#table_filter,
+#table_length {
+  display: inline-block !important;
+  width: 50%;
+}
+
+#table_filter {
+  text-align: right;
+}
 table > *,
 thead > tbody > *,
 thead > tbody tr > *,
