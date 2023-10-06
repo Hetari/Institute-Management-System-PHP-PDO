@@ -155,7 +155,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add-user-btn" class="btn btn-success fw-bold">Save changes</button>
+                                <button type="submit" name="add-employee-btn" class="btn btn-success fw-bold">Save changes</button>
                             </div>
                         </div>
                     </div>

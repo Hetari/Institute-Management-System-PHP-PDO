@@ -4,7 +4,8 @@ const phone = $("#phone");
 const username = $("#username");
 const email_login = $("#email-login");
 const email_register = $("#email");
-const password_login = $("password-login");
+const password_login = $("#password-login");
+const salary = $("#salary");
 
 first_name.on("blur", validateName);
 last_name.on("blur", validateName);
@@ -13,6 +14,7 @@ phone.on("blur", validatePhone);
 email_register.on("blur", validateEmail);
 email_login.on("blur", validateEmail);
 password_login.on("blur", validatePassword);
+salary.on("blur", validateSalary);
 
 $(".gender").on("change", function () {
   $(this).valid();
@@ -25,6 +27,7 @@ const reUsername = /^[A-Za-z][A-Za-z0-9_]{3,30}$/;
 const reEmail = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
 const rePassword =
   /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
+const reSalary = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
 
 function validatePassword(e) {
   const input = $(this).val().toLowerCase();
