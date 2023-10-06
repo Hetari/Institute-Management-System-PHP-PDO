@@ -120,8 +120,8 @@ if (isset($_SESSION['message'])) {
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
             <form action="employees_conf.php" method="post" class="row needs-validation" novalidate>
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-                    <label for="gender" class="form-label">User</label>
+                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                    <label for="single-select-clear-field" class="form-label">User</label>
                     <select class="form-select" id="single-select-clear-field" data-placeholder="Choose one thing">
                         <option></option>
                         <?php
@@ -132,14 +132,9 @@ if (isset($_SESSION['message'])) {
                         <?php } ?>
                     </select>
                 </div>
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
                     <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
-                </div>
-
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-                    <label class="form-label" for="address">Address</label>
-                    <input name="address" type="text" class="form-control" autocomplete="off" id="address" />
                 </div>
 
                 <div class="my-2 row">
