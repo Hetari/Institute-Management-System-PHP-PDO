@@ -1,8 +1,13 @@
 ﻿<?php
+session_start();
+
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
+
 $title = "Subjects";
 include_once("includes/header.php");
+
+
 if (isset($_SESSION['message'])) {
 ?>
     <script>
@@ -117,18 +122,27 @@ if (isset($_SESSION['message'])) {
             </div>
         </div>
     </nav>
+
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
             <form action="users_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
-                    <label for="fname" class="form-label">Subject Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="English or ...etc." required>
-                    <div id="fnameFeedback" class="invalid-feedback">
+                    <label for="Name" class="form-label">Subject Name</label>
+                    <input type="text" class="form-control" id="Name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="English or ...etc." required>
+                    <div id="nameFeedback" class="invalid-feedback">
                         Write subject name correctly!
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 mt-4 pt-3 d-flex justify-content-end">
+                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                    <label for="shortcut" class="form-label">Subject shortcut</label>
+                    <input type="text" class="form-control" id="shortcut" name="shortcut" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="E or ...etc." required>
+                    <div id="shortcutFeedback" class="invalid-feedback">
+                        Write subject shortcut correctly!
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4 pt-3">
                     <a class="btn btn-danger">Cancel</a>
                     <a class="btn btn-success ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
                 </div>
@@ -172,13 +186,7 @@ if (isset($_SESSION['message'])) {
                                             Name
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            username
-                                        </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status
-                                        </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Phone
+                                            shortcut
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Actions
@@ -187,53 +195,25 @@ if (isset($_SESSION['message'])) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $all_users = select("users");
-                                    foreach ($all_users as $key => $value) {
+                                    $all_subject = select("subjects");
+                                    foreach ($all_subject as $key => $value) {
                                         $id = encrypt_machine("encrypt", $value['ID']);
                                     ?>
                                         <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="./assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">
-                                                            <?= $value['Name'] ?>
-                                                        </h6>
-                                                        <p class="text-xs text-secondary mb-0">
-                                                            <?= $value['Gender'] == 1 ? "Male" : "Female" ?>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">
-                                                    <?= $value['Username'] ?>
-                                                </p>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <?= $value['Email'] ?>
-                                                </p>
-                                            </td>
-                                            <?php ($value['Is_active'] == 1) ? $color = "success" : $color = "danger" ?>
-                                            <td class="align-middle text-sm text-center">
-                                                <span class="badge badge-sm bg-gradient-<?= $color ?>">
-                                                    <?php ($value['Is_active'] == 1) ? $state = "Online" : $state = "Offline";
-                                                    echo $state;
-                                                    ?>
-                                                </span>
-                                            </td>
-
                                             <td class="align-middle">
                                                 <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Phone'] ?>
+                                                    <?= $value['Name'] . "   " . $value['ID'] ?>
                                                 </span>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                    <?php
-                                                    ?>
-                                                    <a href="update users.php?id=<?= $id ?>" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-decoration-none">Edit</a>
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    <?= $value['Shortcut'] ?>
+                                                </span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <a href="update subjects.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-warning text-decoration-none">Edit</a>
+                                                </a>
+                                                <a href="subject_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
                                                 </a>
                                             </td>
                                         </tr>

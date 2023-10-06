@@ -175,30 +175,24 @@ function update($tableName, $data, $id)
  * @param int $id The ID of the record to delete.
  * @return bool True if the deletion was successful, false otherwise.
  */
-function deleteRecord($tableName, $id)
+function delete($tableName, $id)
 {
     global $con;
-
     try {
         // Prepare the delete query
-        $deleteQuery = "DELETE FROM {$tableName} WHERE id = :id";
-
+        $deleteQuery = "DELETE FROM {$tableName} WHERE id = ?";
         // Prepare the statement
         $stmt = $con->prepare($deleteQuery);
-
         // Bind the value
-        $stmt->bindValue(":id", $id);
-
+        $values = [$id];
+        $stmt->execute($values); // Execute the statement with the values array
         // Execute the delete query
         $result = $stmt->execute();
-
         // Return true if the deletion was successful, false otherwise
         return $result;
     } catch (PDOException $e) {
         // Print the error message
         echo "Error: " . $e->getMessage();
     }
-
-    // Return false if an exception occurred
     return false;
 }
