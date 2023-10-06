@@ -34,8 +34,6 @@
     <script src="./assets/js/bootstrap.js"></script>
     <script src="./assets/js/jquery.dataTables.min.js"></script>
     <script src="./assets/js/fontawesome.js"></script>
-    <script src="./assets/js/form.js" defer></script>
-    <script src="./assets/js/site.js" defer></script>
 </head>
 
 <body>

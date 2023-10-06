@@ -1,4 +1,7 @@
 <script src="./assets/js/select2.min.js"></script>
+<script src="./assets/js/form.js"></script>
+<script src="./assets/js/site.js"></script>
+
 <script>
     document.querySelector('form').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
