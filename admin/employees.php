@@ -158,7 +158,7 @@ if (isset($_SESSION['message'])) {
                 <div class="my-2 row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <a class="btn btn-danger">Cancel</a>
-                        <a class="btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
+                        <a class="btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal" id="add-btn">Add</a>
                     </div>
                 </div>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
