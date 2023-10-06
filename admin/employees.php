@@ -121,11 +121,7 @@ if (isset($_SESSION['message'])) {
         <div class="container-fluid p-4">
             <form action="employees_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
-                    <label for="gender" class="form-label">Gender</label>
-                    <link rel="stylesheet" href="./assets/css/select2.min.css">
-                    <link rel="stylesheet" href="./assets/css/select2-bootstrap-5-theme.min.css">
-                    <script src="./assets/js/select2.min.js"></script>
-
+                    <label for="gender" class="form-label">User</label>
                     <select class="form-select" id="single-select-clear-field" data-placeholder="Choose one thing">
                         <option></option>
                         <?php
@@ -135,15 +131,6 @@ if (isset($_SESSION['message'])) {
                             <option value="<?= $value['ID'] ?>"> <?= $value['Name'] ?></option>
                         <?php } ?>
                     </select>
-
-                    <script>
-                        $('#single-select-clear-field').select2({
-                            theme: "bootstrap-5",
-                            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                            placeholder: $(this).data('placeholder'),
-                            allowClear: true
-                        });
-                    </script>
                 </div>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="salary">Salary</label>

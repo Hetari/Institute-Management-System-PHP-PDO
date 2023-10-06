@@ -45,28 +45,28 @@
                     <input class="form-control" placeholder="1800" aria-label="Amount (to the nearest dollar)" />
                 </div>
             </div>
-           
+
         </div>
 
         <div class="row pb-3">
-             <div class="col-lg-6 col-md-6 col-sm-12">
-                
+            <div class="col-lg-6 col-md-6 col-sm-12">
+
                 <label class="form-label">Hire date:</label>
 
-                <input type="date" class="form-control"  />
+                <input type="date" class="form-control" />
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12">
-                
+
                 <label class="form-label">DOB:</label>
 
-                <input type="date" class="form-control"  />
+                <input type="date" class="form-control" />
             </div>
         </div>
 
         <div class="row pt-3">
             <div class="col-lg-6 col-md-6 col-sm-12">
-                <a class="btn btn-outline-danger ms-0" >Cancel</a>
+                <a class="btn btn-outline-danger ms-0">Cancel</a>
                 <a class="btn new-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
             </div>
         </div>

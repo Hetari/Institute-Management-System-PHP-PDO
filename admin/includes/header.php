@@ -23,6 +23,8 @@
 
 
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/select2.min.css">
+    <link rel="stylesheet" href="./assets/css/select2-bootstrap-5-theme.min.css">
     <link rel="stylesheet" href="./assets/css/password-strength.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css" />
     <link rel="stylesheet" href="./assets/css/site.css" />
