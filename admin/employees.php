@@ -119,10 +119,10 @@ if (isset($_SESSION['message'])) {
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="employees_conf.php" method="post" class="row needs-validation" novalidate>
+            <form action="employees_conf.php" method="post" class="row needs-validation validate-form" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
-                    <label for="single-select-clear-field" class="form-label">User</label>
-                    <select class="form-select" id="single-select-clear-field" data-placeholder="Choose one thing">
+                    <label for="single_sekect2" class="form-label">User</label>
+                    <select class="form-select" id="single_sekect2" data-placeholder="Choose one user">
                         <option></option>
                         <?php
                         $all_users = select("users");
@@ -131,10 +131,16 @@ if (isset($_SESSION['message'])) {
                             <option value="<?= $value['ID'] ?>"> <?= $value['Name'] ?></option>
                         <?php } ?>
                     </select>
+                    <div class="invalid-feedback">
+                        You must to choose a user!
+                    </div>
                 </div>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
                     <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
+                    <div class="invalid-feedback">
+                        You must write a valid number for salary!
+                    </div>
                 </div>
 
                 <div class="my-2 row">

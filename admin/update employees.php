@@ -57,6 +57,9 @@ $lname = $nameParts[1];
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
                     <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
+                    <div class="invalid-feedback">
+                        You must write a valid number for salary!
+                    </div>
                 </div>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12">
                     <label class="form-label d-block w-100">Did you want to</label>

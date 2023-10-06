@@ -27,7 +27,7 @@ const reUsername = /^[A-Za-z][A-Za-z0-9_]{3,30}$/;
 const reEmail = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
 const rePassword =
   /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
-const reSalary = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
+const reSalary = /^(?!0$)(?!.*[.,\/-])\d{1,6}$/;
 
 function validatePassword(e) {
   const input = $(this).val().toLowerCase();
@@ -78,15 +78,14 @@ function passwordCheck(password) {
 
 function displayBar(strength) {
   $(".password-strength-group").attr("data-strength", strength);
-  // if (strength == 0) $("#pass-word").text("Weak");
-  // if (strength == 1) $("#pass-word").text("Weak");
-  // if (strength == 2) $("#pass-word").text("Weak");
-  // if (strength == 3) $("#pass-word").text("Weak");
-  // if (strength == 4) $("#pass-word").text("Weak");
 }
 
 function passwordConfirmationCheck(password, confirmation) {
   return password === confirmation;
+}
+
+function validateSalary(e) {
+  return validating(reSalary, salary.val(), salary);
 }
 
 var is_password_valid = false;
@@ -127,7 +126,8 @@ $("#conPassword").keyup(function () {
           !validatePhone() ||
           !validateName() ||
           !is_password_confirmed ||
-          !validatePassword()
+          !validatePassword() ||
+          !validateSalary()
         ) {
           event.preventDefault();
           event.stopPropagation();
