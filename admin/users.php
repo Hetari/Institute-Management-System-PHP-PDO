@@ -50,7 +50,7 @@ if (isset($_SESSION['message'])) {
             <form action="users_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="fname" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" required>
+                    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="Ebraheem" maxlength="30" required>
                     <div id="fnameFeedback" class="invalid-feedback">
                         Write your first name correctly!
                     </div>
@@ -58,7 +58,7 @@ if (isset($_SESSION['message'])) {
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="lname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lname" name="lname" aria-describedby="inputGroupPrepend3 nameFeedback" required>
+                    <input type="text" class="form-control" id="lname" name="lname" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="Hetari" maxlength="30" required>
                     <div id="lnameFeedback" class="invalid-feedback">
                         Write your last name correctly!
                     </div>
@@ -66,7 +66,7 @@ if (isset($_SESSION['message'])) {
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="phone">Phone number</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="7xxxxxxxx" name="phone" />
+                    <input type="tel" id="phone" class="form-control" maxlength="9" placeholder="7xxxxxxxx" name="phone" />
                     <div id="phoneFeedback" class="invalid-feedback">
                         Write your number correctly!
                     </div>
@@ -74,7 +74,7 @@ if (isset($_SESSION['message'])) {
 
                 <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
+                    <input type="text" class="form-control" id="username" name="username" maxlength="30" placeholder="E_1_E" required>
                     <div id="usernameFeedback" class="invalid-feedback">
                         Please write a valid username.
                     </div>
@@ -129,12 +129,12 @@ if (isset($_SESSION['message'])) {
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="password">Password</label>
-                    <input name="password" type="password" class="form-control" autocomplete="off" id="password" aria-describedby="passwordHelp" required />
+                    <input name="password" type="password" class="form-control" autocomplete="off" id="password" aria-describedby="passwordHelp" maxlength="25" required />
                 </div>
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="conPassword">Conform password</label>
-                    <input name="conPassword" type="password" class="form-control" autocomplete="off" id="conPassword" aria-describedby="conPasswordHelp" value="" required />
+                    <input name="conPassword" type="password" class="form-control" autocomplete="off" id="conPassword" aria-describedby="conPasswordHelp" value="" maxlength="25" required />
                     <div id="conPasswordFeedback" class="invalid-feedback">
                         Doesn't match!
                     </div>

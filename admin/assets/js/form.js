@@ -23,7 +23,7 @@ $(".gender").on("change", function () {
 const reSpaces = /^\S*$/;
 const reName = /^[a-z ,.'-]{3,30}$/;
 const rePhone = /^(?:(\d{3}))?[- ]?(\d{3})[- ]?(\d{3})$/;
-const reUsername = /^[A-Za-z][A-Za-z0-9_]{3,30}$/;
+const reUsername = /^(?!.*[._]$)[a-zA-Z0-9_a-zA-Z0-9]{5,30}$/;
 const reEmail = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
 const rePassword =
   /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
