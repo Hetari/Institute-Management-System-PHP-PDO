@@ -354,7 +354,11 @@ if (isset($_SESSION['message'])) {
                                         </th>
 
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Enrolled_course_id
+                                            Student
+                                        </th>
+
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Course
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Actions
@@ -430,7 +434,13 @@ if (isset($_SESSION['message'])) {
 
                                             <td class="align-middle">
                                                 <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['	Enrolled_course_id'] ?>
+                                                    <?= $value['Student_id'] ?>
+                                                </span>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    <?= $value['Course_id'] ?>
                                                 </span>
                                             </td>
                                         </tr>

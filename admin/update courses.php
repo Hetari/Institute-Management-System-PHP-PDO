@@ -46,7 +46,7 @@ $course = select("courses", $conditions)[0];
             <form action="courses_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="name" class="form-label">Course Name</label>
-                    <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" value="<?= $course['Name'] ?>" required>
                     <div id="nameFeedback" class="invalid-feedback">
                         Write course name correctly!
                     </div>
@@ -54,7 +54,7 @@ $course = select("courses", $conditions)[0];
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="fees">Course Fees</label>
-                    <input name="fees" placeholder="1xxx" type="text" class="form-control" autocomplete="off" id="fees" />
+                    <input name="fees" placeholder="1xxx" type="text" class="form-control" value="<?= $course['Fees'] ?>" autocomplete="off" id="fees" />
                     <div class="invalid-feedback">
                         You must write a valid number for fees!
                     </div>
@@ -65,16 +65,10 @@ $course = select("courses", $conditions)[0];
                     <select class="form-select" id="single_select2" data-placeholder="Choose a subject">
                         <?php
                         $all_subjects = select("subjects");
-                        $options = array();
-                        foreach ($all_subjects as $sub_id => $sub_name) {
-                            $options[$sub_id] = $sub_name;
-                        }
-
-                        foreach ($options as $value => $label) {
-                            $selected = ($course['ID'] == $value) ? 'selected' : '';
-                            echo "<option value=\"$value\" $selected>$label</option>";
-                        }
+                        foreach ($all_subjects as $key => $value) {
                         ?>
+                            <option value="<?= $value['ID'] ?>"> <?= $value['Name'] ?></option>
+                        <?php } ?>
                     </select>
 
                     <div class="invalid-feedback">
