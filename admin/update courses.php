@@ -46,7 +46,7 @@ $course = select("courses", $conditions)[0];
             <form action="courses_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="Name" class="form-label">Course Name</label>
-                    <input type="text" class="form-control" id="Name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
+                    <input type="text" class="form-control" id="name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
                     <div id="nameFeedback" class="invalid-feedback">
                         Write course name correctly!
                     </div>

@@ -47,7 +47,7 @@ $subject = select("subjects", $conditions)[0];
             <form action="subjects_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label for="Name" class="form-label">Subject Name</label>
-                    <input type="text" class="form-control" id="Name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" value="<?= $subject["Name"] ?>" required>
+                    <input type="text" class="form-control" id="name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" value="<?= $subject["Name"] ?>" required>
                     <div id="nameFeedback" class="invalid-feedback">
                         Write subject name correctly!
                     </div>

@@ -1,12 +1,17 @@
 const first_name = $("#fname");
 const last_name = $("#lname");
+const something_name = $("#name");
+const shortcut = $("#shortcut");
 const phone = $("#phone");
 const username = $("#username");
 const email_login = $("#email-login");
 const email_register = $("#email");
 const password_login = $("#password-login");
 const salary = $("#salary");
+const fee = $("#fees");
 
+something_name.on("blur", validateName);
+shortcut.on("blur", validateName);
 first_name.on("blur", validateName);
 last_name.on("blur", validateName);
 username.on("blur", validateUsername);
@@ -15,6 +20,7 @@ email_register.on("blur", validateEmail);
 email_login.on("blur", validateEmail);
 password_login.on("blur", validatePassword);
 salary.on("blur", validateSalary);
+fee.on("blur", validateSalary);
 
 $(".gender").on("change", function () {
   $(this).valid();
@@ -84,8 +90,12 @@ function passwordConfirmationCheck(password, confirmation) {
   return password === confirmation;
 }
 
+function validateEmail(e) {
+  return validating(reEmail, input, $(this));
+}
 function validateSalary(e) {
-  return validating(reSalary, salary.val(), salary);
+  let input = $(this).val().trim().toLowerCase();
+  return validating(reSalary, input, $(this));
 }
 
 var is_password_valid = false;

@@ -128,7 +128,7 @@ if (isset($_SESSION['message'])) {
             <form action="course_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="Name" class="form-label">Course Name</label>
-                    <input type="text" class="form-control" id="Name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
+                    <input type="text" class="form-control" id="name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
                     <div id="nameFeedback" class="invalid-feedback">
                         Write course name correctly!
                     </div>
@@ -159,8 +159,8 @@ if (isset($_SESSION['message'])) {
                 </div>
 
                 <div class="my-2 col-12 form-floating">
-                    <textarea class="form-control" placeholder="Leave a note here" id="floatingTextarea2"></textarea>
-                    <label for="floatingTextarea2">Note</label>
+                    <textarea class="form-control" placeholder="Leave a note here" id="note"></textarea>
+                    <label for="note">Note</label>
                 </div>
 
                 <div class="col-12 mt-4 pt-3">
