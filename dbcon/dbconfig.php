@@ -70,12 +70,12 @@ function add($table, ...$args)
  * Selects data from a database table based on given conditions.
  *
  * @param string $table The name of the table to select from.
- * @param array $conditions An array of conditions to filter the selection. Each condition is an associative array with the column name as the key and the value or an array of [operator, value] as the value.
+ * @param array $conditions An array of conditions to filter the selection. Each condition is an associative array with the column name as the key and the value or an array of [operation, value] as the value.
  * @param string|array $columns The columns to select. Defaults to '*' to select all columns.
  *
  * @return array|false Returns an array of selected rows as associative arrays, or an empty array if no rows are found. Returns false if there was an error.
  */
-function select($table, $conditions = array(), $columns = '*')
+function select($table, $conditions = array(), $columns = '*', $operator = "AND")
 {
     try {
         global $con;
@@ -90,22 +90,21 @@ function select($table, $conditions = array(), $columns = '*')
                 $column = key($condition);
                 $value = $condition[$column];
 
-                // Handle different comparison operators
-                $operator = '=';
+                // Handle different comparison operations
+                $operation = '=';
                 if (is_array($value)) {
-                    [$operator, $value] = $value;
+                    [$operation, $value] = $value;
                 }
 
-                $conditionsArr[] = "{$column} {$operator} ?";
+                $conditionsArr[] = "{$column} {$operation} ?";
                 $values[] = $value;
             }
-            $where .= implode(' AND ', $conditionsArr);
+            $where .= implode(' ' . $operator . ' ', $conditionsArr);
         }
 
         // Build the SQL statement
         $sql = "SELECT {$columns} FROM {$table} {$where}";
         $stmt = $con->prepare($sql);
-
         // Execute the statement with the values array
         $stmt->execute($values);
 

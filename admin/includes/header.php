@@ -33,7 +33,7 @@
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="./assets/js/jquery.dataTables.min.js"></script>
-    <script src="./assets/js/fontawesome.js"></script>
+
 
 </head>
 
@@ -145,10 +145,10 @@
                     </li>
 
                     <li>
-                        <a href="./exames.php" title="Exames">
+                        <a href="./grades.php" title="Grades">
                             <i class="fa-solid fa-file-circle-question icon"></i>
                             <span class="text nav-text">
-                                Exames
+                                Grades
                             </span>
                         </a>
                     </li>

@@ -127,8 +127,8 @@ if (isset($_SESSION['message'])) {
         <div class="container-fluid p-4">
             <form action="subject_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
-                    <label for="Name" class="form-label">Subject Name</label>
-                    <input type="text" class="form-control" id="name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="English or ...etc." required>
+                    <label for="name" class="form-label">Subject Name</label>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="English or ...etc." required>
                     <div id="nameFeedback" class="invalid-feedback">
                         Write subject name correctly!
                     </div>
