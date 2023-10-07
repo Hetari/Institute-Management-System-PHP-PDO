@@ -53,7 +53,7 @@ $lname = $nameParts[1];
         <div class="container-fluid p-4">
             <?php $user_id = encrypt_machine("encrypt", $user['ID']);
             ?>
-            <form action="users_conf.php?id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>
+            <form action="employees_conf.php?id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
                     <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
@@ -68,7 +68,7 @@ $lname = $nameParts[1];
                 <div class="my-2 row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <a href="users.php" class="btn btn-danger m-auto">Cancel</a>
-                        <input type="submit" name="update-user-btn" value="Update" class="btn btn-success new-btn m-auto"></input>
+                        <input type="submit" name="update-employee-btn" value="Update" class="btn btn-success new-btn m-auto"></input>
                     </div>
                 </div>
             </form>

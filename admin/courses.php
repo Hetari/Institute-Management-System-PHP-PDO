@@ -125,7 +125,7 @@ if (isset($_SESSION['message'])) {
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="users_conf.php" method="post" class="row needs-validation" novalidate>
+            <form action="course_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="Name" class="form-label">Course Name</label>
                     <input type="text" class="form-control" id="Name" name="Name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
@@ -144,7 +144,7 @@ if (isset($_SESSION['message'])) {
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="single_select2" class="form-label">Subject</label>
-                    <select class="form-select" id="single_select2" data-placeholder="Choose one user">
+                    <select class="form-select" id="single_select2" data-placeholder="Choose a subject">
                         <option></option>
                         <?php
                         $all_subjects = select("subjects");
@@ -180,7 +180,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add-user-btn" class="btn btn-success fw-bold">Save changes</button>
+                                <button type="submit" name="add-course-btn" class="btn btn-success fw-bold">Save changes</button>
                             </div>
                         </div>
                     </div>

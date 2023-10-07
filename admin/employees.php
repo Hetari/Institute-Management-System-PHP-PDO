@@ -271,7 +271,7 @@ if (isset($_SESSION['message'])) {
                                             <td class="align-middle text-center">
                                                 <a href="update employees.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-warning text-decoration-none">Edit</a>
                                                 </a>
-                                                <a href="delete_employees.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
+                                                <a href="employee_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
                                                 </a>
                                             </td>
                                         </tr>
