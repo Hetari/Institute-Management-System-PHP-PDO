@@ -202,7 +202,7 @@ if (isset($_SESSION['message'])) {
                                         <tr>
                                             <td class="align-middle">
                                                 <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Name'] . "   " . $value['ID'] ?>
+                                                    <?= $value['Name'] ?>
                                                 </span>
                                             </td>
                                             <td class="align-middle">
