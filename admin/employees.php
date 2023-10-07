@@ -121,8 +121,8 @@ if (isset($_SESSION['message'])) {
         <div class="container-fluid p-4">
             <form action="employees_conf.php" method="post" class="row needs-validation validate-form" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
-                    <label for="single_sekect2" class="form-label">User</label>
-                    <select class="form-select" id="single_sekect2" data-placeholder="Choose one user">
+                    <label for="single_select2" class="form-label">User</label>
+                    <select class="form-select" id="single_select2" data-placeholder="Choose one user">
                         <option></option>
                         <?php
                         $all_users = select("users");
