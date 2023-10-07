@@ -24,6 +24,10 @@ require_once("functions/code.php")
   <script src="assets/js/sweetalert2.js"></script>
   <?php
   if (isset($_SESSION['message'])) {
+    $already = false;
+    if ($_SESSION['message'] == "Email is already exists!") {
+      $already = true;
+    }
   ?>
     <script>
       Swal.fire({
@@ -34,7 +38,7 @@ require_once("functions/code.php")
       })
     </script>
   <?php unset($_SESSION['message']);
-  } else
+  }
   ?>
 
   <!-- Section: Design Block -->
@@ -199,10 +203,20 @@ require_once("functions/code.php")
         </div>
       </div>
   </section>
-
   <script src="assets/lib/jquery/dist/jquery.min.js"></script>
   <script src="assets/js/form.js"></script>
   <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <?php
+  if ($already) {
+  ?>
+    <script>
+      document.querySelector("#tab-login").click()
+    </script>
+  <?php
+  }
+  ?>
+
 
 </body>
 

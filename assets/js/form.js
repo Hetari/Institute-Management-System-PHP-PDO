@@ -19,7 +19,7 @@ $(".gender-register").on("change", function () {
 });
 
 const reSpaces = /^\S*$/;
-const reName = /^[a-z ,.'-]{3,30}$/;
+const reName = /^[a-zA-Z.'-][a-zA-Z]{3,30}$/;
 const rePhone = /^(?:(\d{3}))?[- ]?(\d{3})[- ]?(\d{3})$/;
 const reUsername = /^[A-Za-z][A-Za-z0-9_]{3,30}$/;
 const reEmail = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;

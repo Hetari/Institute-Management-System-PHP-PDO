@@ -137,7 +137,7 @@ if (isset($_POST["login-btn"])) {
         re_direct("../index.php", "success", "Logged in Successfully");
         die();
     } else {
-        re_direct("../login.php", "error", "Please login or create an account!");
+        re_direct("../login.php#pills-login", "info", "Email is already exists!");
         die();
     }
 }
