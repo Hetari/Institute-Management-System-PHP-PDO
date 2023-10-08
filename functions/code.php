@@ -16,7 +16,6 @@ function re_direct($url, $icon, $msg)
     header("Location:" . $url);
 }
 
-
 function encrypt_machine($action, $string)
 {
     $output = false;

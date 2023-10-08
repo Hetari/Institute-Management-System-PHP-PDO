@@ -1,6 +1,9 @@
 <?php
 require_once("../functions/code.php");
 
+$title = "dashboard";
+include_once("includes/header.php");
+
 if (isset($_SESSION["auth"])) {
     if ($_SESSION["roleAs"] != 1) {
         re_direct("../index.php", "warning", "You are not the admin");
@@ -12,7 +15,6 @@ if (isset($_SESSION["auth"])) {
 //     // die();
 // }
 
-include_once("includes/header.php");
 include_once("../dbcon/dbconfig.php");
 if (isset($_SESSION['message'])) {
 ?>

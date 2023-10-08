@@ -1,6 +1,7 @@
 ﻿<?php
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
+
 $title = "Employees";
 include_once("includes/header.php");
 if (isset($_SESSION['message'])) {
@@ -120,16 +121,29 @@ if (isset($_SESSION['message'])) {
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
             <form action="employees_conf.php" method="post" class="row needs-validation validate-form" novalidate>
+                <input type="hidden" id="hidden" name="hidden" value="">
+
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label for="single_select2" class="form-label">User</label>
                     <select class="form-select" id="single_select2" data-placeholder="Choose one user">
                         <option></option>
                         <?php
                         $all_users = select("users");
-                        foreach ($all_users as $key => $value) {
+                        $all_employees = select("employees");
+                        foreach ($all_users as $key => $user) {
+                            $is_employee = false;
+                            foreach ($all_employees as $employee) {
+                                if ($user['ID'] == $employee['User_id']) {
+                                    $is_employee = true;
+                                    break;
+                                }
+                            }
+                            if (!$is_employee) {
+                                $id = encrypt_machine("encrypt", $user["ID"]);
                         ?>
-                            <option value="<?= $value['ID'] ?>"> <?= $value['Name'] ?></option>
-                        <?php } ?>
+                                <option value="<?= $user['ID'] ?>"> <?= $user['Name'] ?></option>
+                        <?php }
+                        } ?>
                     </select>
                     <div class="invalid-feedback">
                         You must to choose a user!
@@ -137,7 +151,7 @@ if (isset($_SESSION['message'])) {
                 </div>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
-                    <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
+                    <input name="salary" type="number" class="form-control" autocomplete="off" id="salary" name="salary" />
                     <div class="invalid-feedback">
                         You must write a valid number for salary!
                     </div>
@@ -166,6 +180,13 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                 </div>
+                <script defer>
+                    $('#single_select2').on('change', function() {
+                        var selectedOption = $(this).select2('data')[0];
+                        var id = selectedOption.id;
+                        document.getElementById("hidden").value = id;
+                    });
+                </script>
             </form>
         </div>
     </div>
@@ -211,10 +232,10 @@ if (isset($_SESSION['message'])) {
                                     <?php
                                     $all_employees = select("employees");
 
-                                    foreach ($all_employees as $key => $value) {
-                                        $id = encrypt_machine("encrypt", $value['ID']);
+                                    foreach ($all_employees as $key => $user) {
+                                        $id = encrypt_machine("encrypt", $user['ID']);
                                         $conditions = array(
-                                            array("id" => ["=", $value['User_id']])
+                                            array("id" => ["=", $user['User_id']])
                                         );
                                         $users = select("users", $conditions)[0];
                                     ?>
@@ -259,19 +280,19 @@ if (isset($_SESSION['message'])) {
 
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Salary'] ?>
+                                                    <?= $user['Salary'] ?>
                                                 </span>
                                             </td>
 
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Join_date'] ?>
+                                                    <?= $user['Join_date'] ?>
                                                 </span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="update employees.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-warning text-decoration-none">Edit</a>
                                                 </a>
-                                                <a href="employee_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
+                                                <a href="employees_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
                                                 </a>
                                             </td>
                                         </tr>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,12 +36,9 @@
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="./assets/js/jquery.dataTables.min.js"></script>
-
-
 </head>
 
 <body>
-
     <script src="./assets/js/sweetalert2.js"></script>
 
     <nav class="sidebar close">

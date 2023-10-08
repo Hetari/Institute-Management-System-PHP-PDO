@@ -1,6 +1,4 @@
 ﻿<?php
-session_start();
-
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
 

@@ -1,6 +1,7 @@
 ﻿<?php
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
+
 $title = "Users";
 include_once("includes/header.php");
 if (isset($_SESSION['message'])) {
