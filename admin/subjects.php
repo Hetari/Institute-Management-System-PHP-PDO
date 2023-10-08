@@ -125,7 +125,7 @@ if (isset($_SESSION['message'])) {
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="subject_conf.php" method="post" class="row needs-validation" novalidate>
+            <form action="subjects_conf.php" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label for="name" class="form-label">Subject Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="English or ...etc." required>
@@ -213,7 +213,7 @@ if (isset($_SESSION['message'])) {
                                             <td class="align-middle text-center">
                                                 <a href="update subjects.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-warning text-decoration-none">Edit</a>
                                                 </a>
-                                                <a href="subject_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
+                                                <a href="subjects_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
                                                 </a>
                                             </td>
                                         </tr>

@@ -23,7 +23,9 @@ if (isset($_POST["add-user-btn"])) {
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
-            $errors[$field . "Empty"] = ucfirst($fieldName) . " field is required!";
+            $errors[$field . "Empty"] = ucfirst($fieldName) . " field";
+        } elseif (!ctype_alpha($_POST[$field])) {
+            $errors[$field . "Invalid"] = ucfirst($fieldName) . " must only contain alphabetic characters";
         }
     }
 
@@ -67,7 +69,7 @@ if (isset($_POST["add-user-btn"])) {
         re_direct("users.php", "error", "There was an error");
         die();
     }
-} else  if (isset($_POST["update-user-btn"])) {
+} else if (isset($_POST["update-user-btn"])) {
     $requiredRegisterFields = [
         "fname" => "first_name",
         "lname" => "last_name",
@@ -78,10 +80,11 @@ if (isset($_POST["add-user-btn"])) {
         "role" => "role",
     ];
 
-
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
-            $errors[$field . "Empty"] = ucfirst($fieldName) . " field is required!";
+            $errors[$field . "Empty"] = ucfirst($fieldName) . " field";
+        } elseif (strpos($_POST[$field], ' ') !== false) {
+            $errors[$field . "Invalid"] = ucfirst($fieldName) . " should not contain spaces";
         }
     }
 

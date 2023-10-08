@@ -4,14 +4,14 @@ ini_set('display_errors', 1);
 
 
 $dsn = 'mysql:host=localhost;dbname=ims';
-$user = 'root';
+$user_name = 'root';
 $pass = '';
 $option = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 );
 
 try {
-    $con = new PDO($dsn, $user, $pass, $option);
+    $con = new PDO($dsn, $user_name, $pass, $option);
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

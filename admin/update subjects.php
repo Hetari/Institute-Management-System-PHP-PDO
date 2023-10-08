@@ -44,7 +44,7 @@ $subject = select("subjects", $conditions)[0];
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="subjects_conf.php" method="post" class="row needs-validation" novalidate>
+            <form action="subjects_conf.php?id=<?= $subject['ID'] ?>" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label for="name" class="form-label">Subject Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" value="<?= $subject["Name"] ?>" required>
@@ -61,26 +61,10 @@ $subject = select("subjects", $conditions)[0];
                     </div>
                 </div>
 
-                <div class="col-12 mt-4 pt-3">
-                    <a class="btn btn-danger">Cancel</a>
-                    <a class="btn btn-success ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
-                </div>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure of the data that you want to save it?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add-subject-btn" class="btn btn-success fw-bold">Save changes</button>
-                            </div>
-                        </div>
+                <div class="my-2 row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <a href="subjects.php" class="btn btn-danger m-auto">Cancel</a>
+                        <input type="submit" name="update-subject-btn" value="Update" class="btn btn-success new-btn m-auto"></input>
                     </div>
                 </div>
             </form>

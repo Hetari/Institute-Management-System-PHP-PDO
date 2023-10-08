@@ -13,9 +13,7 @@ $user = select("users", $conditions)[0];
 $nameParts = explode(" ", $user['Name']);
 $fname = $nameParts[0];
 $lname = $nameParts[1];
-
 ?>
-
 <main role="main" class="home text main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="card navbar navbar-main navbar-expand-lg my-2 mx-4 border-radius-xl shadow-none" id="navbarBlur" data-scroll="true">
@@ -43,6 +41,7 @@ $lname = $nameParts[1];
             </div>
         </div>
     </nav>
+
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
             <form action="users_conf.php?id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>

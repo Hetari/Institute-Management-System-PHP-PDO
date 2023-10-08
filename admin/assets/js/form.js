@@ -11,7 +11,7 @@ const salary = $("#salary");
 const fee = $("#fees");
 
 something_name.on("blur", validateName);
-shortcut.on("blur", validateName);
+shortcut.on("blur", validateShortcut);
 first_name.on("blur", validateName);
 last_name.on("blur", validateName);
 username.on("blur", validateUsername);
@@ -28,17 +28,13 @@ $(".gender").on("change", function () {
 
 const reSpaces = /^\S*$/;
 const reName = /^[a-z ,.'-]{3,30}$/;
+const reShortcut = /^[a-z ,.'-]{1,30}$/;
 const rePhone = /^(?:(\d{3}))?[- ]?(\d{3})[- ]?(\d{3})$/;
 const reUsername = /^(?!.*[._]$)[a-zA-Z0-9_a-zA-Z0-9]{5,30}$/;
 const reEmail = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
 const rePassword =
   /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
 const reSalary = /^(?!0$)(?!.*[.,\/-])\d{1,6}$/;
-
-function validatePassword(e) {
-  const input = $(this).val().toLowerCase();
-  validating(reName, input, $(this));
-}
 
 function validating(re, input, element) {
   if (reSpaces.test(input) && re.test(input)) {
@@ -50,6 +46,16 @@ function validating(re, input, element) {
     element.removeClass("is-valid");
     return false;
   }
+}
+
+function validatePassword(e) {
+  const input = $(this).val().toLowerCase();
+  validating(reName, input, $(this));
+}
+
+function validateShortcut(e) {
+  const input = $(this).val().toLowerCase();
+  validating(reShortcut, input, $(this));
 }
 
 function validateName(e) {
