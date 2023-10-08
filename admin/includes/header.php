@@ -30,12 +30,12 @@ session_start();
     <link rel="stylesheet" href="./assets/css/select2-bootstrap-5-theme.min.css">
     <link rel="stylesheet" href="./assets/css/password-strength.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css" />
-    <link rel="stylesheet" href="./assets/css/site.css" />
 
 
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="./assets/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/site.css" />
 </head>
 
 <body>

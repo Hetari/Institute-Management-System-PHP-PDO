@@ -456,6 +456,49 @@ a.badge:hover {
 body.dark a.badge:hover {
   color: var(--bg-body);
 }
+
+.select2-search {
+  background-color: transparent !important;
+}
+
+.select2-search__field {
+  color: var(--text-color) !important;
+  background-color: var(--sidebar-color) !important;
+}
+
+.select2-dropdown,
+.select2-selection {
+  border: var(--bg-body) !important;
+  background-color: var(--sidebar-color) !important;
+}
+
+.select2-dropdown {
+  background-color: var(--white) !important;
+}
+
+.select2-results__options {
+  color: var(--bg-body);
+}
+
+.select2-results__option--highlighted {
+  background-color: var(--sidebar-color) !important;
+  color: var(--dark-mint) !important;
+  font-weight: bold !important;
+}
+
+.select2-selection__rendered {
+  color: var(--text-color) !important;
+}
+
+body.dark .select2-dropdown,
+body.dark .select2-selection {
+  border: var(--bg-body) !important;
+  background-color: var(--bg-body) !important;
+}
+
+body.dark .select2-results__options {
+  color: var(--white);
+}
 /* Content !!! */
 main {
   justify-content: end;
