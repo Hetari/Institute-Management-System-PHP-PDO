@@ -438,6 +438,24 @@ body.dark .home .text {
   color: var(--white);
 }
 
+/* view dashboard */
+.grade-input::-webkit-inner-spin-button,
+.grade-input::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+a.badge {
+  color: var(--text-color);
+}
+
+a.badge:hover {
+  color: var(--text-color-2);
+}
+
+body.dark a.badge:hover {
+  color: var(--bg-body);
+}
 /* Content !!! */
 main {
   justify-content: end;

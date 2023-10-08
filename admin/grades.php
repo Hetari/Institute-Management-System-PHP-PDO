@@ -44,7 +44,7 @@ if (isset($_SESSION['message'])) {
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                     <div class="input-group input-group-outline">
                         <label class="form-label">Type here...</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input type="number" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)">
                     </div>
                 </div>
                 <ul class="navbar-nav  justify-content-end">
@@ -123,181 +123,6 @@ if (isset($_SESSION['message'])) {
         </div>
     </nav>
 
-    <div class="card my-2 mx-4 border-radius-xl shadow-none">
-        <div class="container-fluid p-4">
-            <form action="grades_conf.php" method="post" class="row needs-validation" novalidate>
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Presentation</label>
-                    <input type="text" class="form-control grade-input" id="presentation-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Participation</label>
-                    <input type="text" class="form-control grade-input" id="participation-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Homework</label>
-                    <input type="text" class="form-control grade-input" id="homework-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Attendance</label>
-                    <input type="text" class="form-control grade-input" id="attendance-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Story</label>
-                    <input type="text" class="form-control grade-input" id="story-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Story</label>
-                    <input type="text" class="form-control grade-input" id="story-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Quiz - 1</label>
-                    <input type="text" class="form-control grade-input" id="quiz1-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Quiz - 2</label>
-                    <input type="text" class="form-control grade-input" id="quiz2-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
-                    <label for="grade" class="form-label">Final Exam</label>
-                    <input type="text" class="form-control grade-input" id="final-grade" name="grade" aria-describedby="inputGroupPrepend3 nameFeedback" required>
-                    <div id="nameFeedback" class="invalid-feedback">
-                        Write the grade correctly!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-                    <label for="single_select" class="form-label">Student Name</label>
-                    <select class="form-select" id="single_select" data-placeholder="Choose a student">
-                        <option></option>
-                        <?php
-                        $all_users = select("users");
-                        $all_employees = select("employees");
-                        foreach ($all_users as $key => $user) {
-                            $is_employee = false;
-                            foreach ($all_employees as $employee) {
-                                if ($user['ID'] == $employee['User_id']) {
-                                    $is_employee = true;
-                                    break;
-                                }
-                            }
-                            if (!$is_employee) {
-                        ?>
-                                <option value="<?= $user['ID'] ?>"> <?= $user['Name'] ?></option>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </select>
-                    <div class="invalid-feedback">
-                        You must to choose a student!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-3 col-md-3 col-sm-6 form-outline">
-                    <label for="single_select2" class="form-label">Course Name</label>
-                    <select class="form-select2" id="single_select2" data-placeholder="Choose a student">
-                        <option></option>
-                        <?php
-                        $all_courses = select("courses");
-                        foreach ($all_courses as $key => $value) {
-                        ?>
-                            <option value="<?= $value['ID'] ?>"> <?= $value['Name'] ?></option>
-                        <?php } ?>
-                        ?>
-                    </select>
-                    <div class="invalid-feedback">
-                        You must to choose a student!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-6 col-md-6 col-sm-6 form-outline">
-                    <label for="grade" class="form-label">Sum</label>
-                    <input name="sum-grade" id="sum-grade" class="form-control" type="text" disabled readonly>
-                </div>
-
-                <div class="my-2 col-lg-6 col-md-6 col-sm-6 form-outline">
-                    <label for="grade" class="form-label">Average</label>
-                    <input name="average-grade" id="average-grade" class="form-control" type="text" disabled readonly>
-                </div>
-
-                <script>
-                    var gradeInputs = document.getElementsByClassName('grade-input');
-                    var sumInput = document.getElementById('sum-grade');
-                    var averageInput = document.getElementById('average-grade');
-                    for (var i = 0; i < gradeInputs.length; i++) {
-                        gradeInputs[i].addEventListener('input', calculate);
-                    }
-
-                    function calculate() {
-                        var sum = 0;
-                        for (var i = 0; i < gradeInputs.length; i++) {
-                            var grade = parseFloat(gradeInputs[i].value) || 0;
-                            sum += grade;
-                        }
-                        var average = sum / gradeInputs.length;
-                        sumInput.value = sum;
-                        averageInput.value = average.toFixed(2);
-                    }
-                </script>
-
-                <div class="col-12 mt-4 pt-3">
-                    <a class="btn btn-danger">Cancel</a>
-                    <a class="btn btn-success ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
-                </div>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure of the data that you want to save it?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add-course-btn" class="btn btn-success fw-bold">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <div class="container-fluid p-4">
         <div class="row">
@@ -310,150 +135,91 @@ if (isset($_SESSION['message'])) {
                     </div>
                     <div class="card-body ">
                         <div class="table-responsive">
-                            <table id="table" class="display table table-striped table-hover table-bordered align-items-center mb-0">
+                            <table id="table" class="table table-striped table-hover table-bordered align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Presentation
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Participation
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Homework
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Attendance
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Story
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Quiz1
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Quiz2
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Final_exam
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Sum
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Average
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Student
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Course
-                                        </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Name
+                                        </th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            username
+                                        </th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status
+                                        </th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Phone
+                                        </th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Actions
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <?php
-                                    $all_grades = select("grades");
-                                    foreach ($all_grades as $key => $value) {
-                                        $id = encrypt_machine("encrypt", $value['ID']);
+                                    $all_users = select("users");
+                                    $all_employees = select("employees");
+                                    foreach ($all_users as $key => $user) {
+                                        $is_employee = false;
+                                        foreach ($all_employees as $employee) {
+                                            if ($user['ID'] == $employee['User_id']) {
+                                                $is_employee = true;
+                                                break;
+                                            }
+                                        }
+                                        if (!$is_employee) {
+                                            $id = encrypt_machine("encrypt", $user["ID"]);
                                     ?>
-                                        <tr>
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Presentation'] ?>
-                                                </span>
-                                            </td>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div>
+                                                            <img src="./assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                                                        </div>
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">
+                                                                <?= $user['Name'] ?>
+                                                            </h6>
+                                                            <p class="text-xs text-secondary mb-0">
+                                                                <?= $user['Gender'] == 1 ? "Male" : "Female" ?>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        <?= $user['Username'] ?>
+                                                    </p>
+                                                    <p class="text-xs text-secondary mb-0">
+                                                        <?= $user['Email'] ?>
+                                                    </p>
+                                                </td>
+                                                <?php ($user['Is_active'] == 1) ? $color = "success" : $color = "danger" ?>
+                                                <td class="align-middle text-center text-sm">
+                                                    <span class="badge badge-sm bg-gradient-<?= $color ?>">
+                                                        <?php ($user['Is_active'] == 1) ? $state = "Online" : $state = "Offline";
+                                                        echo $state;
+                                                        ?>
+                                                    </span>
+                                                </td>
 
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Participation'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Homework'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Attendance'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Story'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Quiz1'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Quiz2'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Final_exam'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Sum'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Average'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Student_id'] ?>
-                                                </span>
-                                            </td>
-
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Course_id'] ?>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    <?php }; ?>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">
+                                                        <?= $user['Phone'] ?>
+                                                    </span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <a href="add grade.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-success text-decoration-none">Add grade</a>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                    <?php };
+                                    }; ?>
                                 </tbody>
                             </table>
-
                             <script>
-                                new DataTable('#table', {
-                                    dom: "<'row'<'col-3 mt-auto'l><'offset-3 col-6 col-6 d-flex justify-content-end'f><'col-sm-3 text-right'C>>" +
-                                        "<'row'<'col-sm-12'tr>>" +
-                                        "<'row'<''p>>"
-                                });
+                                new DataTable('#table');
                             </script>
                         </div>
                     </div>
