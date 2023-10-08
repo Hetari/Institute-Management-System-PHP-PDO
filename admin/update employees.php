@@ -16,10 +16,6 @@ $conditions = array(
     array("ID" => ["=", $employee["User_id"]])
 );
 $user = select("users", $conditions)[0];
-$nameParts = explode(" ", $user['Name']);
-$fname = $nameParts[0];
-$lname = $nameParts[1];
-
 ?>
 
 <main role="main" class="home text main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -53,10 +49,10 @@ $lname = $nameParts[1];
         <div class="container-fluid p-4">
             <?php $user_id = encrypt_machine("encrypt", $user['ID']);
             ?>
-            <form action="employees_conf.php?id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>
+            <form action="employees_conf.php?id=<?= $employee['ID'] ?>" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
-                    <input name="salary" type="text" class="form-control" autocomplete="off" id="salary" />
+                    <input name="salary" type="text" class="form-control" value="<?= $employee["Salary"] ?>" autocomplete="off" id="salary" />
                     <div class="invalid-feedback">
                         You must write a valid number for salary!
                     </div>

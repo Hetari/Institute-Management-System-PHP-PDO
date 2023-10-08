@@ -48,15 +48,16 @@ if (isset($_POST["add-employee-btn"])) {
     }
 } else if (isset($_POST["update-employee-btn"])) {
     $requiredRegisterFields = [
-        "name" => "name",
-        "shortcut" => "shortcut"
+        "salary" => "salary"
     ];
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
             $errors[$field . "Empty"] = ucfirst($fieldName) . " field";
-        } elseif (strpos($_POST[$field], ' ') !== false) {
-            $errors[$field . "Invalid"] = ucfirst($fieldName) . " should not contain spaces";
+        } elseif (strtolower($field) == "salary") {
+            continue;
+        } elseif (!ctype_alpha($_POST[$field])) {
+            $errors[$field . "Invalid"] = ucfirst($fieldName) . " must only contain alphabetic characters";
         }
     }
 
@@ -70,13 +71,9 @@ if (isset($_POST["add-employee-btn"])) {
     }
 
     $id = $_GET["id"];
-    $shortcut = ucfirst($shortcut);
-    $name = ucfirst($name);
     $data = [
-        "Name" => $name,
-        "Shortcut" => $shortcut
+        "Salary" => $salary
     ];
-
     $results = update("employees", $data, $id);
 
     if ($results) {

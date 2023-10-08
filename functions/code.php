@@ -16,6 +16,13 @@ function re_direct($url, $icon, $msg)
     header("Location:" . $url);
 }
 
+/**
+ * Encrypts or decrypts a string using AES-256-CBC encryption method.
+ *
+ * @param string $action The action to perform. Valid values are 'encrypt' or 'decrypt'.
+ * @param string $string The input string to be encrypted or decrypted.
+ * @return string|bool The encrypted or decrypted string, or false on failure.
+ */
 function encrypt_machine($action, $string)
 {
     $output = false;
