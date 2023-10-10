@@ -59,11 +59,11 @@ $user = select("users", $conditions)[0];
                 </div>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12">
                     <label class="form-label d-block w-100">Did you want to</label>
-                    <a href="update users.php?id=<?= $user_id ?>" class="btn btn-dark m-auto">Update user information?</a>
+                    <a href="update employees.php?id=<?= $user_id ?>" class="btn btn-dark m-auto">Update user information?</a>
                 </div>
                 <div class="my-2 row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
-                        <a href="users.php" class="btn btn-danger m-auto">Cancel</a>
+                        <a href="employees.php" class="btn btn-danger m-auto">Cancel</a>
                         <input type="submit" name="update-employee-btn" value="Update" class="btn btn-success new-btn m-auto"></input>
                     </div>
                 </div>

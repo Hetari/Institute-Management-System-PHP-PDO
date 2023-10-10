@@ -1,5 +1,4 @@
 ﻿<?php
-session_start();
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
 
@@ -14,7 +13,7 @@ if (isset($_POST["add-employee-btn"])) {
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
-            $errors[$field . "Empty"] = ucfirst($fieldName) . " field";
+            $errors[$field . "Empty"] = ucfirst($fieldName) . " field is required!";
         } elseif (strtolower($field) == "salary") {
             continue;
         } elseif (!ctype_alpha($_POST[$field])) {
@@ -23,7 +22,7 @@ if (isset($_POST["add-employee-btn"])) {
     }
 
     if (!empty($errors)) {
-        re_direct("employees.php", "error", "Error: " . implode(", ", $errors) . " fields is required!");
+        re_direct("employees.php", "error", "Error: " . implode(", ", $errors));
         die();
     }
 
@@ -37,7 +36,7 @@ if (isset($_POST["add-employee-btn"])) {
         "Salary" => $salary
     ];
     $results = add("employees", ...array_flatten($data));
-    echo "add";
+
 
     if ($results) {
         re_direct("employees.php", "success", "Add new record successfully");
@@ -53,7 +52,7 @@ if (isset($_POST["add-employee-btn"])) {
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
-            $errors[$field . "Empty"] = ucfirst($fieldName) . " field";
+            $errors[$field . "Empty"] = ucfirst($fieldName) . " field is required!";
         } elseif (strtolower($field) == "salary") {
             continue;
         } elseif (!ctype_alpha($_POST[$field])) {
@@ -62,7 +61,7 @@ if (isset($_POST["add-employee-btn"])) {
     }
 
     if (!empty($errors)) {
-        re_direct("update employees.php", "error", "Error: " . implode(", ", $errors) . " fields are required!");
+        re_direct("update employees.php", "error", "Error: " . implode(", ", $errors));
         die();
     }
 

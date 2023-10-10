@@ -17,21 +17,22 @@ html {
 
 :root {
   /* Colors */
-  --light-mint: #3bd96a;
-  --dark-mint: #3fc28b;
+  --dark-mint: #368b68c9;
   --red: #ff6f5b;
   --bg-body: #151515;
   --white: #fff;
   /* Sidebar */
   --body-color: #e8e1f0;
   --sidebar-color: #fff;
-  --primary-color: #3fc28b;
   --sidebar-color: #f6f5ff;
   --toggle-color: #ddd;
   --text-color: #383838;
   --text-color-2: #d9d9d9;
   --tran-03: all 0.1s ease-in-out;
   --icon-width: 50px;
+}
+body.dark {
+  --dark-mint: #3fc28b;
 }
 
 /* user */
@@ -66,7 +67,6 @@ body {
 body.dark {
   --body-color: #151515;
   --sidebar-color: #242526;
-  --primary-color: var(--light-mint);
   /* --sidebar-color: #3a3b3c; */
   /* --toggle-color: var(--white); */
   --text-color: #ccc;
@@ -133,7 +133,7 @@ body.dark .input-group-text {
 }
 
 ::selection {
-  background-color: var(--primary-color);
+  background-color: var(--dark-mint);
   color: var(--white);
 }
 
@@ -241,7 +241,7 @@ body.dark .input-group-text {
   /* 40px; */
   height: 25px;
   width: 25px;
-  background-color: var(--primary-color);
+  background-color: var(--dark-mint);
   color: var(--sidebar-color);
   border-radius: 100%;
   display: flex;
@@ -315,7 +315,7 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar li a:hover {
-  background-color: var(--primary-color);
+  background-color: var(--dark-mint);
 }
 
 .sidebar li a:hover .icon,
@@ -392,7 +392,7 @@ body.dark .mode .sun-moon i.moon {
 }
 
 body.dark .toggle-switch .switch {
-  background-color: var(--primary-color);
+  background-color: var(--dark-mint);
 }
 
 .switch::before {
@@ -439,6 +439,8 @@ body.dark .home .text {
 }
 
 /* view dashboard */
+#fees::-webkit-inner-spin-button,
+#fees::-webkit-outer-spin-button,
 .grade-input::-webkit-inner-spin-button,
 .grade-input::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
@@ -577,7 +579,7 @@ table.dataTable thead tr th {
 
 .next,
 .previous {
-  background-color: var(--light-mint);
+  background-color: var(--dark-mint);
   color: var(--text-color);
   border: 0;
   font-family: inherit;
@@ -663,8 +665,8 @@ body.dark .form-control {
 }
 
 .page-item.active .page-link {
-  border-color: var(--primary-color);
-  background-color: var(--primary-color);
+  border-color: var(--dark-mint);
+  background-color: var(--dark-mint);
 }
 
 body.dark .page-link {
@@ -688,7 +690,7 @@ body.dark .page-link {
 /* Login */
 ul.nav-pills.log li.nav-item a.active,
 .gradient-custom {
-  background: linear-gradient(to right, var(--dark-mint), var(--light-mint));
+  background: linear-gradient(to right, var(--dark-mint), var(--dark-mint));
 }
 
 li.nav-item a {

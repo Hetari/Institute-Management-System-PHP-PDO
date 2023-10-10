@@ -12,14 +12,14 @@ if (isset($_POST["add-subject-btn"])) {
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
-            $errors[$field . "Empty"] = ucfirst($fieldName) . " field";
+            $errors[$field . "Empty"] = ucfirst($fieldName) . " field is required!";
         } elseif (!ctype_alpha($_POST[$field])) {
             $errors[$field . "Invalid"] = ucfirst($fieldName) . " must only contain alphabetic characters";
         }
     }
 
     if (!empty($errors)) {
-        re_direct("subjects.php", "error", "Error: " . implode(", ", $errors) . " fields is required!");
+        re_direct("subjects.php", "error", "Error: " . implode(", ", $errors));
         die();
     }
 
@@ -50,14 +50,14 @@ if (isset($_POST["add-subject-btn"])) {
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
-            $errors[$field . "Empty"] = ucfirst($fieldName) . " field";
+            $errors[$field . "Empty"] = ucfirst($fieldName) . " field is required!";
         } elseif (strpos($_POST[$field], ' ') !== false) {
             $errors[$field . "Invalid"] = ucfirst($fieldName) . " should not contain spaces";
         }
     }
 
     if (!empty($errors)) {
-        re_direct("update subjects.php", "error", "Error: " . implode(", ", $errors) . " fields are required!");
+        re_direct("update subjects.php", "error", "Error: " . implode(", ", $errors));
         die();
     }
 

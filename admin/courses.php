@@ -123,7 +123,9 @@ if (isset($_SESSION['message'])) {
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="course_conf.php" method="post" class="row needs-validation" novalidate>
+            <form action="courses_conf.php" method="post" class="row needs-validation" novalidate>
+                <input type="hidden" id="hidden" name="hidden" value="">
+
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="name" class="form-label">Course Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
@@ -134,7 +136,7 @@ if (isset($_SESSION['message'])) {
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="fees">Course Fees</label>
-                    <input name="fees" placeholder="1xxx" type="text" class="form-control" autocomplete="off" id="fees" />
+                    <input name="fees" placeholder="1xxx" type="number" class="form-control" autocomplete="off" id="fees" />
                     <div class="invalid-feedback">
                         You must write a valid number for fees!
                     </div>
@@ -142,8 +144,7 @@ if (isset($_SESSION['message'])) {
 
                 <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="single_select2" class="form-label">Subject</label>
-                    <select class="form-select" id="single_select2" data-placeholder="Choose a subject">
-                        <option></option>
+                    <select class="form-select" id="single_select2">
                         <?php
                         $all_subjects = select("subjects");
                         foreach ($all_subjects as $key => $value) {
@@ -157,7 +158,7 @@ if (isset($_SESSION['message'])) {
                 </div>
 
                 <div class="my-2 col-12 form-floating">
-                    <textarea class="form-control" placeholder="Leave a note here" id="note"></textarea>
+                    <textarea class="form-control" placeholder="Leave a note here" name="note" id="note"></textarea>
                     <label for="note">Note</label>
                 </div>
 
@@ -183,6 +184,13 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                 </div>
+                <script defer>
+                    $('#single_select2').on('change', function() {
+                        var selectedOption = $(this).select2('data')[0];
+                        var id = selectedOption.id;
+                        document.getElementById("hidden").value = id;
+                    });
+                </script>
             </form>
         </div>
     </div>
@@ -208,6 +216,9 @@ if (isset($_SESSION['message'])) {
                                             fee
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            subject
+                                        </th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             note
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -220,6 +231,10 @@ if (isset($_SESSION['message'])) {
                                     $all_course = select("courses");
                                     foreach ($all_course as $key => $value) {
                                         $id = encrypt_machine("encrypt", $value['ID']);
+                                        $conditions = array(
+                                            array("ID" => ["=", $value['Subject_id']])
+                                        );
+                                        $subject = select("subjects", $conditions)[0];
                                     ?>
                                         <tr>
                                             <td class="align-middle">
@@ -234,13 +249,18 @@ if (isset($_SESSION['message'])) {
                                             </td>
                                             <td class="align-middle">
                                                 <span class="text-secondary text-xs font-weight-bold">
+                                                    <?= $subject["Name"] ?>
+                                                </span>
+                                            </td>
+                                            <td class="align-middle">
+                                                <span class="text-secondary text-xs font-weight-bold">
                                                     <?= $value['Description'] ?>
                                                 </span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="update courses.php?id=<?= $id ?>" class="badge badge-sm bg-gradient-warning text-decoration-none">Edit</a>
                                                 </a>
-                                                <a href="course_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
+                                                <a href="courses_conf.php?action=delete&id=<?= $id ?>" class="badge badge-sm bg-gradient-danger text-decoration-none">Delete</a>
                                                 </a>
                                             </td>
                                         </tr>
