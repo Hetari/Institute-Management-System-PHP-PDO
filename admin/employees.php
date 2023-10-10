@@ -4,6 +4,21 @@ require_once("../functions/code.php");
 
 $title = "Employees";
 include_once("includes/header.php");
+
+if (isset($_SESSION["auth"])) {
+    if ($_SESSION["roleAs"] != 1) {
+        re_direct("../index.php", "warning", "You are not the admin");
+        die();
+    }
+} else {
+?>
+    <script>
+        window.location.assign("../index.php")
+    </script>
+<?php
+    die();
+}
+
 if (isset($_SESSION['message'])) {
 ?>
     <script>

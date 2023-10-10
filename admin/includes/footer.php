@@ -23,6 +23,10 @@
         allowClear: true
     });
 </script>
+</div>
+<script>
+    document.getElementById('main-content').style.display = 'block';
+</script>
 </body>
 
 </html>

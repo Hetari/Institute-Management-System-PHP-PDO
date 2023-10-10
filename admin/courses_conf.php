@@ -3,6 +3,33 @@ session_start();
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
 
+session_start();
+?>
+
+<body>
+    <?php
+    require_once("includes/script.php");
+    ?>
+    <script>
+        document.getElementById('main-content').style.display = 'block';
+    </script>
+</body>
+
+<?php
+if (isset($_SESSION["auth"])) {
+    if ($_SESSION["roleAs"] != 1) {
+        re_direct("../index.php", "warning", "You are not the admin");
+        die();
+    }
+} else {
+?>
+    <script>
+        window.location.assign("../index.php")
+    </script>
+<?php
+    die();
+}
+
 $name = $fees = $subject_id = $description = "";
 $errors = array();
 if (isset($_POST["add-course-btn"])) {

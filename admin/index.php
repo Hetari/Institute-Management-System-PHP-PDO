@@ -3,19 +3,22 @@ require_once("../functions/code.php");
 
 $title = "dashboard";
 include_once("includes/header.php");
+include_once("../dbcon/dbconfig.php");
 
 if (isset($_SESSION["auth"])) {
     if ($_SESSION["roleAs"] != 1) {
         re_direct("../index.php", "warning", "You are not the admin");
         die();
     }
+} else {
+?>
+    <script>
+        window.location.assign("../index.php")
+    </script>
+<?php
+    die();
 }
-// else {
-//     re_direct("../login.php", "error", "Please login!");
-//     // die();
-// }
 
-include_once("../dbcon/dbconfig.php");
 if (isset($_SESSION['message'])) {
 ?>
     <script>
@@ -29,7 +32,6 @@ if (isset($_SESSION['message'])) {
     </script>
 <?php unset($_SESSION['message']);
 }
-?>
 ?>
 <main role="main" class="home text main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->

@@ -5,6 +5,20 @@ require_once("../functions/code.php");
 $title = "Update users";
 include("includes/header.php");
 
+if (isset($_SESSION["auth"])) {
+    if ($_SESSION["roleAs"] != 1) {
+        re_direct("../index.php", "warning", "You are not the admin");
+        die();
+    }
+} else {
+?>
+    <script>
+        window.location.assign("../index.php")
+    </script>
+<?php
+    die();
+}
+
 $id = encrypt_machine("decrypt", $_GET['id']);
 $conditions = array(
     array("id" => ["=", $id])
