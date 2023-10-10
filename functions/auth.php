@@ -89,6 +89,11 @@ if (isset($_POST["login-btn"])) {
         }
     }
 
+    $pattern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).*$/';
+    if (!preg_match($pattern, $password)) {
+        $errors["Password"] = "Password should contains numbers, alphabets (both capital and small), and symbols!";
+    }
+
     if (!empty($errors)) {
         re_direct("../login.php", "error", "Error: " . implode(", ", $errors) . " fields is required!");
         die();
@@ -100,6 +105,7 @@ if (isset($_POST["login-btn"])) {
 
     $name = ucwords(concat_str(strtolower($first_name), " ", strtolower($last_name)));
     $password = password_hash($password, PASSWORD_DEFAULT);
+
 
     if (!$password === $password_confirmation) {
         re_direct("../login.php", "info", "Passwords doesn't match!");

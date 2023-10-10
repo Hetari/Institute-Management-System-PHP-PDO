@@ -31,6 +31,7 @@ require_once("functions/code.php")
   ?>
     <script>
       Swal.fire({
+        title: "Wait!",
         icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
         text: <?= "'" . $_SESSION['message'] . "'" ?>,
         confirmButtonColor: '#151515',

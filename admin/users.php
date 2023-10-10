@@ -31,7 +31,7 @@ if (isset($_SESSION['message'])) {
     <script>
         Swal.fire({
             icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
-            title: 'Massage',
+            title: 'message',
             text: <?= "'" . $_SESSION['message'] . "'" ?>,
             confirmButtonColor: '#151515',
             backdrop: 'rgba(63, 194, 139, 0.5)'
