@@ -3,17 +3,6 @@ session_start();
 
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
-$user = null;
-
-if (isset($_SESSION["auth_user"])) {
-    $user_id = $_SESSION["auth_user"]["user_id"];
-
-    $conditions = array(
-        array("ID" => ["=", $user_id])
-    );
-    $user = select("users", $conditions)[0];
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +34,6 @@ if (isset($_SESSION["auth_user"])) {
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="./assets/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/material-dashboard.css" />
     <link rel="stylesheet" href="./assets/css/site.css" />
 </head>
 

@@ -52,8 +52,8 @@ body.dark {
 }
 
 .form-check-label {
-  font-size: 1.2rem;
-  position: absolute;
+  font-size: 1.2rem !important;
+  position: absolute !important;
 }
 
 body {
@@ -654,12 +654,26 @@ body.dark .paginate_button.current {
 }
 
 /*  */
+.card-body,
+.list-group-item {
+  background-color: var(--sidebar-color) !important;
+  transition: var(--tran-03) !important;
+}
+
+.progress-bar {
+  background-color: var(--dark-mint) !important;
+}
+
+body.dark .card-body,
+body.dark .list-group-item {
+  background-color: var(--bg-body) !important;
+}
+
 .card-header,
 .card {
   background-color: var(--white) !important;
   transition: var(--tran-03) !important;
 }
-
 body.dark .card-header,
 body.dark .card {
   background-color: var(--sidebar-color) !important;
@@ -667,10 +681,10 @@ body.dark .card {
 
 body.dark .form-select,
 body.dark .form-control {
-  color: var(--white);
-  border-color: var(--bg-body);
-  background-color: var(--bg-body);
-  transition: var(--tran-03);
+  color: var(--white) !important;
+  border-color: var(--bg-body) !important;
+  background-color: var(--bg-body) !important;
+  transition: var(--tran-03) !important;
 }
 
 .page-item.active .page-link {
@@ -719,8 +733,8 @@ ul.nav-pills.log li.nav-item a.active {
 }
 
 .tab-pane form button.btn:hover {
-  background-color: var(--dark-mint);
-  border: 0;
+  background-color: var(--dark-mint) !important;
+  border: 0 !important;
 }
 
 @media (min-width: 768px) {

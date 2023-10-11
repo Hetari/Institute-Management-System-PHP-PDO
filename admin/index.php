@@ -33,6 +33,10 @@ if (isset($_SESSION['message'])) {
 <?php unset($_SESSION['message']);
 }
 ?>
+<link rel="stylesheet" href="./assets/css/material-dashboard.css" />
+<link rel="stylesheet" href="./assets/css/site.css" />
+
+
 <main role="main" class="home text main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="card navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none" id="navbarBlur" data-scroll="true">
