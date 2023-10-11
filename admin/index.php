@@ -509,7 +509,7 @@ if (isset($_SESSION['message'])) {
                         <div class="timeline timeline-one-side">
                             <div class="timeline-block mb-3">
                                 <span class="timeline-step">
-                                    <i class="material-icons text-success text-gradient">notifications</i>
+                                    <i class="fa fa-user fixed-plugin-button-nav cursor-pointer text-danger" aria-hidden="true"></i>
                                 </span>
                                 <div class="timeline-content">
                                     <h6 class="text-dark text-sm font-weight-bold mb-0">$2400, Design changes</h6>
@@ -518,7 +518,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="timeline-block mb-3">
                                 <span class="timeline-step">
-                                    <i class="material-icons text-danger text-gradient">code</i>
+                                    <i class="fa fa-user fixed-plugin-button-nav cursor-pointer text-danger" aria-hidden="true"></i>
                                 </span>
                                 <div class="timeline-content">
                                     <h6 class="text-dark text-sm font-weight-bold mb-0">New order #1832412</h6>
@@ -527,7 +527,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="timeline-block mb-3">
                                 <span class="timeline-step">
-                                    <i class="material-icons text-info text-gradient">shopping_cart</i>
+                                    <i class="fa fa-user fixed-plugin-button-nav cursor-pointer text-danger" aria-hidden="true"></i>
                                 </span>
                                 <div class="timeline-content">
                                     <h6 class="text-dark text-sm font-weight-bold mb-0">Server payments for April</h6>
@@ -536,7 +536,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="timeline-block mb-3">
                                 <span class="timeline-step">
-                                    <i class="material-icons text-warning text-gradient">credit_card</i>
+                                    <i class="fa fa-user fixed-plugin-button-nav cursor-pointer text-danger" aria-hidden="true"></i>
                                 </span>
                                 <div class="timeline-content">
                                     <h6 class="text-dark text-sm font-weight-bold mb-0">New card added for order #4395133</h6>
@@ -545,7 +545,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="timeline-block mb-3">
                                 <span class="timeline-step">
-                                    <i class="material-icons text-primary text-gradient">key</i>
+                                    <i class="fa fa-user fixed-plugin-button-nav cursor-pointer text-danger" aria-hidden="true"></i>
                                 </span>
                                 <div class="timeline-content">
                                     <h6 class="text-dark text-sm font-weight-bold mb-0">Unlock packages for development</h6>
@@ -554,7 +554,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="timeline-block">
                                 <span class="timeline-step">
-                                    <i class="material-icons text-dark text-gradient">payments</i>
+                                    <i class="fa fa-user fixed-plugin-button-nav cursor-pointer text-danger" aria-hidden="true"></i>
                                 </span>
                                 <div class="timeline-content">
                                     <h6 class="text-dark text-sm font-weight-bold mb-0">New order #9583120</h6>
@@ -571,29 +571,14 @@ if (isset($_SESSION['message'])) {
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6 mb-lg-0 mb-4">
                         <div class="copyright text-center text-sm text-muted text-lg-start">
-                            © <script>
+                            ©
+                            <script>
                                 document.write(new Date().getFullYear())
-                            </script>2023,
+                            </script>
                             made with <i class="fa fa-heart" aria-hidden="true"></i> by
                             <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
                             for a better web.
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>

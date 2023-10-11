@@ -654,14 +654,15 @@ body.dark .paginate_button.current {
 }
 
 /*  */
-
+.card-header,
 .card {
-  background-color: var(--white);
-  transition: var(--tran-03);
+  background-color: var(--white) !important;
+  transition: var(--tran-03) !important;
 }
 
+body.dark .card-header,
 body.dark .card {
-  background-color: var(--sidebar-color);
+  background-color: var(--sidebar-color) !important;
 }
 
 body.dark .form-select,
