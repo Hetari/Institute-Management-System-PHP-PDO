@@ -1,6 +1,6 @@
 <?php
 $title = "About";
-include_once("./includes/header.php");
+require_once("./includes/header.php");
 ?>
 
 <main id="main">
@@ -178,4 +178,4 @@ include_once("./includes/header.php");
   </section><!-- End Testimonials Section -->
 
 </main><!-- End #main -->
-<?php include_once("./includes/footer.php"); ?>
+<?php require_once("./includes/footer.php"); ?>

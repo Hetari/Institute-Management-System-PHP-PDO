@@ -1,6 +1,6 @@
 <?php
 
-include_once("includes/header.php");
+require_once("includes/header.php");
 if (isset($_SESSION['message'])) {
 ?>
   <script>
@@ -390,4 +390,4 @@ if (isset($_SESSION['message'])) {
   </section><!-- End Trainers Section -->
 
 </main><!-- End #main -->
-<?php include_once("includes/footer.php"); ?>
+<?php require_once("includes/footer.php"); ?>

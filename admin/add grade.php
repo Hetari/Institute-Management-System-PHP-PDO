@@ -3,7 +3,7 @@ require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
 
 $title = "Add grades";
-include_once("includes/header.php");
+require_once("includes/header.php");
 $id = encrypt_machine("decrypt", $_GET['id']);
 
 if (isset($_SESSION["auth"])) {
@@ -475,4 +475,4 @@ if (isset($_SESSION['message'])) {
         </div>
     </div>
 </main>
-<?php include_once("includes/footer.php"); ?>
+<?php require_once("includes/footer.php"); ?>

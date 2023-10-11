@@ -1,5 +1,19 @@
 <?php
 session_start();
+
+require_once("../dbcon/dbconfig.php");
+require_once("../functions/code.php");
+$user = null;
+
+if (isset($_SESSION["auth_user"])) {
+    $user_id = $_SESSION["auth_user"]["user_id"];
+
+    $conditions = array(
+        array("ID" => ["=", $user_id])
+    );
+    $user = select("users", $conditions)[0];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +34,6 @@ session_start();
 
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 
-    <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" /> -->
-
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"> -->
-
-    <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" /> -->
-
 
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/select2.min.css">
@@ -40,6 +45,7 @@ session_start();
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="./assets/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/material-dashboard.css" />
     <link rel="stylesheet" href="./assets/css/site.css" />
 </head>
 
@@ -56,8 +62,8 @@ session_start();
                         <img src="./assets/img/User.svg" alt="User">
                     </span>
                     <div class="text logo-text">
-                        <span class="name">Academia</span>
-                        <span class="profession">The perect software</span>
+                        <span class="name">IMS</span>
+                        <span class="profession">The best choice</span>
                     </div>
                 </div>
                 <i class="fa-solid fa-chevron-right toggle"></i>
@@ -172,7 +178,7 @@ session_start();
                 <div class="bottom-content">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="../functions/logout.php">
                                 <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
                                 <span class="text nav-text">Logout</span>
                             </a>

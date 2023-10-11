@@ -135,8 +135,8 @@ if (isset($_POST["login-btn"])) {
 
         $_SESSION["auth_user"] = [
             "user_id" => $user_id,
-            "name" => $username,
-            "email" => $user_email,
+            "user_name" => $username,
+            "user_email" => $user_email,
         ];
 
         $_SESSION["roleAs"] = $roleAs;

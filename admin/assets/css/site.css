@@ -56,7 +56,6 @@ body.dark {
   position: absolute;
 }
 
-/*  */
 body {
   min-height: 100vh;
   transition: var(--tran-03);
@@ -415,6 +414,7 @@ body.dark .switch::before {
 .home {
   position: absolute;
   top: 0;
+  margin-top: 1% !important;
   left: 250px;
   height: 100vh;
   width: calc(100% - 250px);
@@ -544,6 +544,14 @@ body.dark thead > tbody tr th td > * {
 .btn-success {
   background-color: var(--dark-mint);
   color: var(--sidebar-color);
+  opacity: 0.95;
+}
+
+.btn-success:hover {
+  background-color: var(--dark-mint);
+  color: var(--sidebar-color);
+  opacity: 1;
+  font-weight: 900 !important;
 }
 
 table.dataTable thead tr th {

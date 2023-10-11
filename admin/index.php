@@ -2,8 +2,8 @@
 require_once("../functions/code.php");
 
 $title = "dashboard";
-include_once("includes/header.php");
-include_once("../dbcon/dbconfig.php");
+require_once("includes/header.php");
+require_once("../dbcon/dbconfig.php");
 
 if (isset($_SESSION["auth"])) {
     if ($_SESSION["roleAs"] != 1) {
@@ -701,5 +701,5 @@ if (isset($_SESSION['message'])) {
     </div>
 </main>
 <?php
-include_once("includes/footer.php");
+require_once("includes/footer.php");
 ?>
