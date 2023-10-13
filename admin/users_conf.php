@@ -147,6 +147,10 @@ if (isset($_POST["add-user-btn"])) {
     $results = update("users", $data, $id);
 
     if ($results) {
+        if ($_GET["action"] == "profile") {
+            re_direct("profile.php", "success", "update profile successfully");
+            die();
+        }
         re_direct("users.php", "success", "Update record successfully");
         die();
     } else {

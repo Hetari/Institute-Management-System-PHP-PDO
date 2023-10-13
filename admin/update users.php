@@ -55,7 +55,7 @@ $lname = $nameParts[1];
     <!-- End Navbar -->
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="users_conf.php?id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>
+            <form action="users_conf.php?action=<?= isset($_GET["action"]) ? $_GET["action"] : "" ?>&id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
                     <label for="fname" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" required value=<?= "{$fname}" ?>>
