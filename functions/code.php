@@ -12,7 +12,6 @@ function re_direct($url, $icon, $msg)
     if ($icon != "") {
         $_SESSION['icon'] = $icon;
     }
-
     header("Location:" . $url);
 }
 
@@ -49,12 +48,12 @@ function validate($data)
     return $data;
 }
 
-function getIntValue($s)
-{
-    if (!is_numeric($s))
-        return false;
-    return (int)$s;
-}
+// function getIntValue($s)
+// {
+//     if (!is_numeric($s))
+//         return false;
+//     return (int)$s;
+// }
 
 // Function to flatten the associative array
 /**
@@ -71,11 +70,6 @@ function array_flatten(array $array): array
         $result[] = $value;
     }
     return $result;
-}
-
-function check_decryption($enteredPassword, $hashedPassword)
-{
-    return password_verify($enteredPassword, $hashedPassword);
 }
 
 function concat_str(...$args)

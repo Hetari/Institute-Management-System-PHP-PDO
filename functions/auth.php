@@ -35,13 +35,19 @@ if (isset($_POST["login-btn"])) {
 
     $results = select("users", $conditions, "*");
 
-
     if (!count($results)) {
         re_direct("../login.php", "warning", "The email or the password are not correct");
         die();
     }
 
     $DBpassword = $results[0]['Password'];
+    $password_correct = password_verify($password, $DBpassword);
+
+    if (!$password_correct) {
+        re_direct("../login.php", "warning", "The email or the password are not correct");
+        die();
+    }
+
     //init the auth = true
     $_SESSION["auth"] = true;
 
