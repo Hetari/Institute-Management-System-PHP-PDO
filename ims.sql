@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 10, 2023 at 08:56 PM
+-- Generation Time: Oct 13, 2023 at 09:10 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -99,6 +99,26 @@ CREATE TABLE `grades` (
   `Student_id` int(11) NOT NULL,
   `Course_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ims`
+--
+
+CREATE TABLE `ims` (
+  `ID` int(11) NOT NULL,
+  `Text_name` varchar(255) NOT NULL,
+  `Text` varchar(255) NOT NULL,
+  `Page_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ims`
+--
+
+INSERT INTO `ims` (`ID`, `Text_name`, `Text`, `Page_id`) VALUES
+(2, 'Hero_section', 'Learning Today,\r\nLeading Tomorrow', 1);
 
 -- --------------------------------------------------------
 
@@ -212,7 +232,33 @@ INSERT INTO `users` (`ID`, `Name`, `Username`, `Email`, `Phone`, `Password`, `Ge
 (9, 'Brhoome Hetari', 'brhoom', 'q@q.com', '123456789', '$2y$10$Wtmp/OVB/hajCFpP3L876OOqo9aheOdb4qhmBbM7I9HwetwAajdaW', 1, 1, 1, '2023-10-05 19:41:09'),
 (14, 'Mohammed Tala', 'Brho', 'k@k.com', '77777777', '$2y$10$x88D0jh24PANqsN8xU7k0ewkeJLwEu8rq09P1pibuLVTTwj1vejZq', 1, 1, 2, '2023-10-06 12:42:05'),
 (15, 'Ashraf Tala', 'Brhoos', 's@s.com', '77777777', '$2y$10$J.ouDhm1MxKZ/6/dDNzudO5mveAw6Z7q/gNAsqUdx9XZGcmNj948O', 1, 1, 2, '2023-10-06 12:51:07'),
-(17, 'A Hhhh', 'qwer', 'qq@qq.com', '123456789', '$2y$10$aPKUq5ubWR9cExb5e.dgOuOM/ARxlGVLylelqkbwi2AyaXLC0mN0G', 1, 1, 1, '2023-10-06 13:25:53');
+(17, 'A Hhhh', 'qwer', 'qq@qq.com', '123456789', '$2y$10$aPKUq5ubWR9cExb5e.dgOuOM/ARxlGVLylelqkbwi2AyaXLC0mN0G', 1, 1, 1, '2023-10-06 13:25:53'),
+(27, 'Test Test', 'test', 'e@e.com', '123456789sd', '$2y$10$BU.cZlPV081Gx2IpUUyON.VkCmN18y6nU2r8KMS/c/VT41HzzXNqW', 1, 1, 2, '2023-10-10 20:17:40'),
+(28, 'Test Test', 'qwertlkj', 're@r.com', '123456789', '$2y$10$.llmU9RP.BeluqniBgb6L.XBRZYp8LHG9N9gC5RPHF9RMBu./6UzC', 1, 1, 2, '2023-10-10 20:23:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_pages`
+--
+
+CREATE TABLE `user_pages` (
+  `ID` int(11) NOT NULL,
+  `Page_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_pages`
+--
+
+INSERT INTO `user_pages` (`ID`, `Page_name`) VALUES
+(1, 'index'),
+(2, 'contact'),
+(3, 'courses'),
+(4, 'events'),
+(5, 'login'),
+(6, 'pricing'),
+(7, 'trainers');
 
 --
 -- Indexes for dumped tables
@@ -249,6 +295,13 @@ ALTER TABLE `grades`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Student_id` (`Student_id`),
   ADD KEY `Course_id` (`Course_id`);
+
+--
+-- Indexes for table `ims`
+--
+ALTER TABLE `ims`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `Page_id` (`Page_id`);
 
 --
 -- Indexes for table `roles`
@@ -296,6 +349,12 @@ ALTER TABLE `users`
   ADD KEY `role_id` (`Role_id`);
 
 --
+-- Indexes for table `user_pages`
+--
+ALTER TABLE `user_pages`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -322,6 +381,12 @@ ALTER TABLE `enrolled_courses`
 --
 ALTER TABLE `grades`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ims`
+--
+ALTER TABLE `ims`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -351,7 +416,13 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `user_pages`
+--
+ALTER TABLE `user_pages`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -384,6 +455,12 @@ ALTER TABLE `enrolled_courses`
 ALTER TABLE `grades`
   ADD CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`Student_id`) REFERENCES `student` (`ID`),
   ADD CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`Course_id`) REFERENCES `courses` (`ID`);
+
+--
+-- Constraints for table `ims`
+--
+ALTER TABLE `ims`
+  ADD CONSTRAINT `ims_ibfk_1` FOREIGN KEY (`Page_id`) REFERENCES `user_pages` (`ID`);
 
 --
 -- Constraints for table `studies`
