@@ -40,27 +40,23 @@ if (isset($_POST["login-btn"])) {
         die();
     }
 
-    $DBpassword = $results[0]['Password'];
-    $password_correct = password_verify($password, $DBpassword);
+    $db_password = $results[0]['Password'];
+    $password_correct = password_verify($password, $db_password);
 
     if (!$password_correct) {
         re_direct("../login.php", "warning", "The email or the password are not correct");
         die();
     }
 
-    //init the auth = true
     $_SESSION["auth"] = true;
 
-    //Fetching the data that comes from User table to array[UserData]
     $UserData = $results[0];
 
-    //Fetching the values from arrays to vars
     $user_id = $UserData["ID"];
     $username = $UserData["Name"];
     $user_email = $UserData["Email"];
     $roleAs = $UserData["Role_id"];
 
-    //Create session array 
     $_SESSION["auth_user"] = [
         "user_id" => $user_id,
         "name" => $username,
