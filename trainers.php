@@ -2,7 +2,7 @@
 $title = "Trainers";
 require_once("includes/header.php");
 ?>
-<main id="main" data-aos="fade-in">
+<main id="main">
 
   <!-- ======= Breadcrumbs ======= -->
   <div class="breadcrumbs">
@@ -15,9 +15,9 @@ require_once("includes/header.php");
 
   <!-- ======= Trainers Section ======= -->
   <section id="trainers" class="trainers">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
-      <div class="row" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
           <div class="member">
             <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
@@ -29,10 +29,10 @@ require_once("includes/header.php");
                 aut aut
               </p>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -49,10 +49,10 @@ require_once("includes/header.php");
                 temporibus
               </p>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -68,10 +68,10 @@ require_once("includes/header.php");
                 Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
               </p>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-linkedin"></i></a>
               </div>
             </div>
           </div>

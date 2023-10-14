@@ -6,7 +6,7 @@ require_once("includes/header.php");
 <main id="main">
 
   <!-- ======= Breadcrumbs ======= -->
-  <div class="breadcrumbs" data-aos="fade-in">
+  <div class="breadcrumbs">
     <div class="container">
       <h2>Contact Us</h2>
       <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit
@@ -16,30 +16,28 @@ require_once("includes/header.php");
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
-    <div data-aos="fade-up">
-      <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+    <div>
+      <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101677.55220286005!2d44.1910976849218!3d15.369445857753919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x16f18d7b4b7a1a1f%3A0x7d4f5b4d8f3e8b65!2sSana&#39;a%2C%20Yemen!5e0!3m2!1sen!2s!4v1635246184026!5m2!1sen!2s" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
       <div class="row mt-5">
 
         <div class="col-lg-4">
           <div class="info">
             <div class="address">
-              <i class="bi bi-geo-alt"></i>
+              <i class="fas fa-map-marker-alt"></i>
               <h4>Location:</h4>
               <p>A108 Adam Street, New York, NY 535022</p>
             </div>
-
             <div class="email">
-              <i class="bi bi-envelope"></i>
+              <i class="fas fa-envelope"></i>
               <h4>Email:</h4>
               <p>info@example.com</p>
             </div>
-
             <div class="phone">
-              <i class="bi bi-phone"></i>
+              <i class="fas fa-phone"></i>
               <h4>Call:</h4>
               <p>+1 5589 55488 55s</p>
             </div>
@@ -50,7 +48,8 @@ require_once("includes/header.php");
 
         <div class="col-lg-8 mt-5 mt-lg-0">
 
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <!-- forms/contact.php -->
+          <form action="" method="post" role="form" class="php-email-form">
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>

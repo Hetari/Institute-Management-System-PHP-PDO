@@ -60,7 +60,7 @@ if (isset($_SESSION['message'])) {
                                 <img src="assets/img/User.svg" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 <h5 class="my-3"><?= $user["Name"] ?></h5>
                                 <p class="mb-1"><?= $user["Role_id"] == 1 ? "Admin" : "Not an admin" ?></p>
-                                <p class="mb-4">IMS - management system</p>
+                                <p class="mb-4">Mentor - management system</p>
                                 <div class="mt-5 pt-5">
                                     <a href="update users.php?action=profile&id=<?= encrypt_machine("encrypt", $user['ID']) ?>" class="btn btn-success">Edit</a>
                                 </div>

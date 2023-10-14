@@ -12,7 +12,7 @@ require_once("../functions/code.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="Aperture">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IMS</title>
+    <title>Mentor</title>
     <meta name="description" content="Aperture">
 
     <style>
@@ -50,7 +50,7 @@ require_once("../functions/code.php");
                         <img src="./assets/img/User.svg" alt="User">
                     </span>
                     <div class="text logo-text">
-                        <span class="name">IMS</span>
+                        <span class="name">Mentor</span>
                         <span class="profession">The best choice</span>
                     </div>
                 </div>
@@ -174,7 +174,7 @@ require_once("../functions/code.php");
 
                         <li class="mode">
                             <div class="sun-moon">
-                                <i class='bx bx-sun icon sun'></i>
+                                <i class="fas fa-sun icon sun"></i>
                                 <i class="fa-solid fa-sun icon sun"></i>
                                 <i class="fa-solid fa-moon icon moon"></i>
                             </div>

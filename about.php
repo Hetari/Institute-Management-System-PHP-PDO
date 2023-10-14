@@ -5,7 +5,7 @@ require_once("./includes/header.php");
 
 <main id="main">
   <!-- ======= Breadcrumbs ======= -->
-  <div class="breadcrumbs" data-aos="fade-in">
+  <div class="breadcrumbs">
     <div class="container">
       <h2>About Us</h2>
       <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit
@@ -15,10 +15,10 @@ require_once("./includes/header.php");
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
       <div class="row">
-        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+        <div class="col-lg-6 order-1 order-lg-2">
           <img src="assets/img/about.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
@@ -29,9 +29,9 @@ require_once("./includes/header.php");
             magna aliqua.
           </p>
           <ul>
-            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            <li><i class="fas fa-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            <li><i class="fas fa-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+            <li><i class="fas fa-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
               irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
               pariatur.</li>
           </ul>
@@ -51,27 +51,22 @@ require_once("./includes/header.php");
     <div class="container">
 
       <div class="row counters">
-
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+          <span><?= (count($students) - count($employees)) > 0 ? count($students) - count($employees) : 0 ?></span>
           <p>Students</p>
         </div>
-
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
+          <span><?= count($courses) > 0 ? count($courses) : 0 ?></span>
           <p>Courses</p>
         </div>
-
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Events</p>
+          <span><?= count($subjects) > 0 ? count($subjects) : 0 ?></span>
+          <p>Subjects</p>
         </div>
-
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+          <span><?= count($employees) > 0 ? count($employees) : 0 ?></span>
           <p>Trainers</p>
         </div>
-
       </div>
 
     </div>
@@ -79,14 +74,14 @@ require_once("./includes/header.php");
 
   <!-- ======= Testimonials Section ======= -->
   <section id="testimonials" class="testimonials">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
       <div class="section-title">
         <h2>Testimonials</h2>
         <p>What are they saying</p>
       </div>
 
-      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+      <div class="testimonials-slider swiper">
         <div class="swiper-wrapper">
 
           <div class="swiper-slide">
@@ -96,10 +91,10 @@ require_once("./includes/header.php");
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <i class="fas fa-quote-left quote-icon-left"></i>
                   Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
                   Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  <i class="fas fa-quote-right quote-icon-right"></i>
                 </p>
               </div>
             </div>
@@ -112,10 +107,10 @@ require_once("./includes/header.php");
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
                 <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <i class="fas fa-quote-left quote-icon-left"></i>
                   Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
                   quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  <i class="fas fa-quote-right quote-icon-right"></i>
                 </p>
               </div>
             </div>
@@ -128,10 +123,10 @@ require_once("./includes/header.php");
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
                 <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <i class="fas fa-quote-left quote-icon-left"></i>
                   Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
                   tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  <i class="fas fa-quote-right quote-icon-right"></i>
                 </p>
               </div>
             </div>
@@ -144,10 +139,10 @@ require_once("./includes/header.php");
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
                 <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <i class="fas fa-quote-left quote-icon-left"></i>
                   Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
                   minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  <i class="fas fa-quote-right quote-icon-right"></i>
                 </p>
               </div>
             </div>
@@ -160,11 +155,11 @@ require_once("./includes/header.php");
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
                 <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <i class="fas fa-quote-left quote-icon-left"></i>
                   Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
                   culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
                   quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  <i class="fas fa-quote-right quote-icon-right"></i>
                 </p>
               </div>
             </div>

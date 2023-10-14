@@ -3,7 +3,7 @@ $title = "Course";
 require_once("includes/header.php");
 ?>
 
-<main id="main" data-aos="fade-in">
+<main id="main">
 
   <!-- ======= Breadcrumbs ======= -->
   <div class="breadcrumbs">
@@ -16,9 +16,9 @@ require_once("includes/header.php");
 
   <!-- ======= Courses Section ======= -->
   <section id="courses" class="courses">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
-      <div class="row" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
           <div class="course-item">
@@ -38,9 +38,9 @@ require_once("includes/header.php");
                   <span>Antonio</span>
                 </div>
                 <div class="trainer-rank d-flex align-items-center">
-                  <i class="bx bx-user"></i>&nbsp;50
+                  <i class="fas fa-user"></i>&nbsp;50
                   &nbsp;&nbsp;
-                  <i class="bx bx-heart"></i>&nbsp;65
+                  <i class="fas fa-heart"></i>&nbsp;65
                 </div>
               </div>
             </div>
@@ -65,9 +65,9 @@ require_once("includes/header.php");
                   <span>Lana</span>
                 </div>
                 <div class="trainer-rank d-flex align-items-center">
-                  <i class="bx bx-user"></i>&nbsp;35
+                  <i class="fas fa-user"></i>&nbsp;35
                   &nbsp;&nbsp;
-                  <i class="bx bx-heart"></i>&nbsp;42
+                  <i class="fas fa-heart"></i>&nbsp;42
                 </div>
               </div>
             </div>
@@ -92,9 +92,9 @@ require_once("includes/header.php");
                   <span>Brandon</span>
                 </div>
                 <div class="trainer-rank d-flex align-items-center">
-                  <i class="bx bx-user"></i>&nbsp;20
+                  <i class="fas fa-user"></i>&nbsp;20
                   &nbsp;&nbsp;
-                  <i class="bx bx-heart"></i>&nbsp;85
+                  <i class="fas fa-heart"></i>&nbsp;85
                 </div>
               </div>
             </div>

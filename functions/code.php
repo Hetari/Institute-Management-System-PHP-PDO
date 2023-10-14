@@ -125,3 +125,69 @@ function validateAndRenameImage($fileInputName, $dir, $old_img = null, $destinat
         die();
     }
 }
+
+// function validateAndRenameImage($fileInputName, $dir, $old_img = null, $destinationDirectory = "../../uploads")
+// {
+//     if ($_FILES[$fileInputName]['error'] === 0) {
+//         return processValidImage($fileInputName, $dir, $old_img, $destinationDirectory);
+//     } else if ($_FILES[$fileInputName]['error'] === 4) {
+//         return processNoFileError($old_img);
+//     } else {
+//         processUploadError($fileInputName, $dir);
+//     }
+// }
+
+// function processValidImage($fileInputName, $dir, $old_img, $destinationDirectory)
+// {
+//     $img = $_FILES[$fileInputName]['name'];
+//     $img_ext = pathinfo($img, PATHINFO_EXTENSION);
+//     $ext = ['jpg', 'jpeg', 'png', 'svg'];
+//     if (!in_array($img_ext, $ext)) {
+//         $_SESSION['messsage'] = "File format not supported.";
+//         header("Location: $dir");
+//         die();
+//     }
+//     $image = time() . $img;
+//     $destinationPath = $destinationDirectory . '/' . $image;
+//     if ($img != "" && $old_img === null) {
+//         if (move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $destinationPath)) {
+//             return $image; // Return the renamed image filename 
+//         } else {
+//             $_SESSION['messsage'] = "Error moving the uploaded file.";
+//             header("Location: $dir");
+//             die();
+//         }
+//     } else if ($old_img !== null) {
+//         if ($img != "") {
+//             move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $destinationPath);
+//             if (file_exists("../../uploads/" . $old_img)) {
+//                 @unlink("../../uploads/" . $old_img);
+//             }
+//             return $image; // Return the renamed image filename         
+//         } else {
+//             $image = $old_img;
+//             return $image;
+//         }
+//     } else {
+//         $_SESSION['messsage'] = "Error uploading the file.";
+//         header("Location: $dir");
+//         die();
+//     }
+// }
+
+// function processNoFileError($old_img)
+// {
+//     if ($old_img !== null) {
+//         return $old_img;
+//     } else {
+//         $image = '';
+//         return $image;
+//     }
+// }
+
+// function processUploadError($fileInputName, $dir)
+// {
+//     $_SESSION['messsage'] = "Error uploading the file." . $_FILES[$fileInputName]['error'];
+//     header("Location: $dir");
+//     die();
+// }

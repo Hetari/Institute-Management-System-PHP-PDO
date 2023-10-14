@@ -5,7 +5,7 @@ require_once("includes/header.php");
 <main id="main">
 
   <!-- ======= Breadcrumbs ======= -->
-  <div class="breadcrumbs" data-aos="fade-in">
+  <div class="breadcrumbs">
     <div class="container">
       <h2>Events</h2>
       <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit
@@ -15,7 +15,7 @@ require_once("includes/header.php");
 
   <!-- ======= Events Section ======= -->
   <section id="events" class="events">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
       <div class="row">
         <div class="col-md-6 d-flex align-items-stretch">
