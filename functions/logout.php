@@ -1,7 +1,14 @@
 <?php
 session_start();
-unset($_SESSION['auth']);
-
 require_once("code.php");
-re_direct("../index.php", "success", "Logging out...");
+
+if (isset($_POST['singoutbtn'])) {
+    if (isset($_SESSION['auth'])) {
+        unset($_SESSION['auth']);
+        unset($_SESSION['auth_user']);
+        $_SESSION['messsage'] = "Logged out Successfully";
+    }
+    re_direct("../index.php", "success", "Logging out...");
+}
+
 session_destroy();
