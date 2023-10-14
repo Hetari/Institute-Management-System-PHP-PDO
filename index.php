@@ -5,10 +5,15 @@ $title = "index";
 require_once("includes/header.php");
 require_once("dbcon/dbconfig.php");
 
-$conditions = [
-  array("ID", ["=", 1])
+$ims_conditions = [
+  array("Page_id", ["=", 1])
 ];
-$ims = select("ims", $conditions);
+
+$ims = select("ims", $ims_conditions);
+$students = select("users");
+$employees = select("employees");
+$courses = select("courses");
+$subjects = select("subjects");
 
 if (isset($_SESSION['message'])) {
 ?>
@@ -27,8 +32,8 @@ if (isset($_SESSION['message'])) {
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex justify-content-center align-items-center">
   <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-    <h1><?= print_r($ims) ?></h1>
-    <h2>We are team of talented designers making websites with Bootstrap</h2>
+    <h1><?= nl2br($ims[0]["Text"]) ?></h1>
+    <h2><?= $ims[1]["Text"] ?></h2>
     <a href="courses.php" class="btn-get-started">Get Started</a>
   </div>
 </section><!-- End Hero -->
@@ -44,7 +49,7 @@ if (isset($_SESSION['message'])) {
           <img src="assets/img/about.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-          <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, iusto.</h3>
           <p class="fst-italic">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore
@@ -75,22 +80,22 @@ if (isset($_SESSION['message'])) {
       <div class="row counters">
 
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="<?= (count($students) - count($employees)) > 0 ? count($students) - count($employees) : 0 ?>" data-purecounter-duration="1" class="purecounter"></span>
           <p>Students</p>
         </div>
 
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="<?= count($courses) > 0 ? count($courses) : 0 ?>" data-purecounter-duration="1" class="purecounter"></span>
           <p>Courses</p>
         </div>
 
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Events</p>
+          <span data-purecounter-start="0" data-purecounter-end="<?= count($subjects) > 0 ? count($subjects) : 0 ?>" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Subjects</p>
         </div>
 
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="<?= count($employees) > 0 ? count($employees) : 0 ?>" data-purecounter-duration="1" class="purecounter"></span>
           <p>Trainers</p>
         </div>
 
