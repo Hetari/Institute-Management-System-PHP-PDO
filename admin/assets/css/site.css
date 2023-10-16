@@ -627,8 +627,11 @@ table.dataTable thead tr th {
 }
 
 body.dark .previous,
-body.dark .next {
-  color: var(--sidebar-color);
+body.dark .next,
+body.dark .dataTables_length,
+body.dark .table_filter,
+body.dark .dataTables_info {
+  color: var(--text-color);
 }
 
 span a.paginate_button {

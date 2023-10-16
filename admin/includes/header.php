@@ -34,6 +34,8 @@ require_once("../functions/code.php");
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="./assets/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/dash.css" />
     <link rel="stylesheet" href="./assets/css/site.css" />
 </head>
 

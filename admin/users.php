@@ -68,8 +68,13 @@ if (isset($_SESSION['message'])) {
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="users_conf.php" method="post" class="row needs-validation" novalidate>
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+            <form action="users_conf.php" method="post" enctype="multipart/form-data" class="row needs-validation" novalidate>
+                <div class="my-2 col-lg-3 col-md-4 col-sm-12 form-outline">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" name="image" aria-describedby="inputGroupPrepend3 nameFeedback">
+                </div>
+
+                <div class="my-2 col-lg-3 col-md-4 col-sm-6 form-outline">
                     <label for="fname" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="Ebraheem" maxlength="30" required>
                     <div id="fnameFeedback" class="invalid-feedback">
@@ -77,7 +82,7 @@ if (isset($_SESSION['message'])) {
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-3 col-md-4 col-sm-6 form-outline">
                     <label for="lname" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="lname" name="lname" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="Hetari" maxlength="30" required>
                     <div id="lnameFeedback" class="invalid-feedback">
@@ -85,7 +90,7 @@ if (isset($_SESSION['message'])) {
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-3 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="phone">Phone number</label>
                     <input type="tel" id="phone" class="form-control" maxlength="9" placeholder="7xxxxxxxx" name="phone" />
                     <div id="phoneFeedback" class="invalid-feedback">
@@ -93,7 +98,7 @@ if (isset($_SESSION['message'])) {
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
+                <div class="my-2 col-lg-2 col-md-2 col-sm-6 form-outline">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username" maxlength="30" placeholder="E_1_E" required>
                     <div id="usernameFeedback" class="invalid-feedback">
@@ -101,7 +106,7 @@ if (isset($_SESSION['message'])) {
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-3 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="email" class="form-label">Email address</label>
                     <input type="text" class="form-control" id="email" aria-describedby="emailHelp" autocomplete="off" placeholder="name@domain.com" name="email" required>
                     <div id="emailHelp" class="form-text">
@@ -188,7 +193,7 @@ if (isset($_SESSION['message'])) {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add-user-btn" class="btn btn-success fw-bold">Save changes</button>
+                                <button type="submit" name="add-user-btn" class="btn btn-success fw-bold" value="Save changes"></button>
                             </div>
                         </div>
                     </div>

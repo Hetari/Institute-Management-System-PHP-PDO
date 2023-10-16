@@ -56,7 +56,12 @@ $lname = $nameParts[1];
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
             <form action="users_conf.php?action=<?= isset($_GET["action"]) ? $_GET["action"] : "" ?>&id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-3 col-md-4 col-sm-12 form-outline">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" name="image" aria-describedby="inputGroupPrepend3 nameFeedback">
+                </div>
+
+                <div class="my-2 col-lg-3 col-md-4 col-sm-6 form-outline">
                     <label for="fname" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="fname" name="fname" aria-describedby="inputGroupPrepend3 nameFeedback" required value=<?= "{$fname}" ?>>
                     <div id="fnameFeedback" class="invalid-feedback">
@@ -64,7 +69,7 @@ $lname = $nameParts[1];
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-3 col-md-4 col-sm-6 form-outline">
                     <label for="lname" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="lname" name="lname" aria-describedby="inputGroupPrepend3 nameFeedback" required value=<?= "{$lname}" ?>>
                     <div id="lnameFeedback" class="invalid-feedback">
@@ -72,7 +77,7 @@ $lname = $nameParts[1];
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-3 col-md-4 col-sm-6 form-outline">
                     <label class="form-label" for="phone">Phone number</label>
                     <input type="tel" id="phone" class="form-control" placeholder="7xxxxxxxx" name="phone" value=<?= "{$user['Phone']}" ?> />
                     <div id="phoneFeedback" class="invalid-feedback">
@@ -80,7 +85,7 @@ $lname = $nameParts[1];
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
+                <div class="my-2 col-lg-2 col-md-2 col-sm-6 form-outline">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username" required value=<?= "{$user['Username']}" ?>>
                     <div id="usernameFeedback" class="invalid-feedback">
@@ -88,7 +93,7 @@ $lname = $nameParts[1];
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-3 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="email" class="form-label">Email address</label>
                     <input type="text" class="form-control" id="email" aria-describedby="emailHelp" autocomplete="off" placeholder="name@domain.com" name="email" required value=<?= "{$user['Email']}" ?>>
                     <div id="emailHelp" class="form-text">

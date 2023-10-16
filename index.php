@@ -163,7 +163,7 @@ if (isset($_SESSION['message'])) {
   </section><!-- End Why Us Section -->
 
   <!-- ======= Features Section ======= -->
-  <section id="features" class="features">
+  <!-- <section id="features" class="features">
     <div class="container">
 
       <div class="row">
@@ -242,7 +242,8 @@ if (isset($_SESSION['message'])) {
       </div>
 
     </div>
-  </section><!-- End Features Section -->
+  </section> -->
+  <!-- End Features Section -->
 
   <!-- ======= Popular Courses Section ======= -->
   <section id="popular-courses" class="courses">
