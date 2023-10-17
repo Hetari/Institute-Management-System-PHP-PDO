@@ -26,6 +26,7 @@
 </div>
 <script>
     document.getElementById('main-content').style.display = 'block';
+    document.querySelector('.sidebar').style.display = 'block';
 </script>
 </body>
 

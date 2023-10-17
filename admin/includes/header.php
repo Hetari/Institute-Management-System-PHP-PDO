@@ -16,7 +16,8 @@ require_once("../functions/code.php");
     <meta name="description" content="Aperture">
 
     <style>
-        #main-content {
+        #main-content,
+        .sidebar {
             display: none;
         }
     </style>
