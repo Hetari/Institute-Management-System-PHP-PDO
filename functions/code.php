@@ -1,5 +1,11 @@
 <?php
 
+function concat_str(...$args)
+{
+    $result = implode('', $args);
+    return $result;
+}
+
 // $key = bin2hex(random_bytes(32));
 $key = "91da54310d2cb91d96ed9412123daa74e8901b93df2300e160307273c7b7b147";
 function re_direct($url, $icon, $msg)
