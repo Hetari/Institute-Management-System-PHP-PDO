@@ -76,7 +76,7 @@ function array_flatten(array $array): array
     return $result;
 }
 
-function validate_rename_image($fileInputName, $dir, $old_img = null, $destinationDirectory = "../../uploads")
+function validate_rename_image($fileInputName, $dir, $old_img = null, $destinationDirectory = "../uploads")
 {
     if ($_FILES[$fileInputName]['error'] === 0) {
         return valid_Image($fileInputName, $dir, $old_img, $destinationDirectory);

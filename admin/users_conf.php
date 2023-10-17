@@ -47,10 +47,13 @@ if (isset($_POST["add-user-btn"])) {
         "password" => "password",
         "conPassword" => "password_confirmation",
     ];
+    $numbers_filed = ["phone", "username", "email", "gender", "role", "password", "conpassword"];
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
             $errors[$field . "Empty"] = ucfirst($fieldName) . " field is required!";
+        } elseif (in_array(strtolower($field), $numbers_filed)) {
+            continue;
         } elseif (!ctype_alpha($_POST[$field])) {
             $errors[$field . "Invalid"] = ucfirst($fieldName) . " must only contain alphabetic characters";
         }
@@ -66,7 +69,13 @@ if (isset($_POST["add-user-btn"])) {
     foreach ($requiredRegisterFields as $fieldName => $variableName) {
         ${$variableName} = validate($_POST[$fieldName]);
     }
-    $image = validate_rename_image("image", $_GET["action"] == "profile" ? "profile.php" : "users update.php");
+    // $image = validate_rename_image("image", $_GET["action"] == "profile" ? "profile.php" : "users.php");
+    $image = validate_rename_image("image", "../dbcon/dbconfig.php");
+
+    if ($image == "") {
+        $image = "user.svg";
+    }
+
 
     $name = ucwords(concat_str(strtolower($first_name), " ", strtolower($last_name)));
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -78,6 +87,7 @@ if (isset($_POST["add-user-btn"])) {
 
     $data = [
         "Name" => $name,
+        "Img_url" => $image,
         "Username" => $username,
         "Email" => $email,
         "Phone" => $phone,
