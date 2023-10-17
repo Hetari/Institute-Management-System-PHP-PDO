@@ -76,18 +76,18 @@ function array_flatten(array $array): array
     return $result;
 }
 
-function validateAndRenameImage($fileInputName, $dir, $old_img = null, $destinationDirectory = "../../uploads")
+function validate_rename_image($fileInputName, $dir, $old_img = null, $destinationDirectory = "../../uploads")
 {
     if ($_FILES[$fileInputName]['error'] === 0) {
-        return processValidImage($fileInputName, $dir, $old_img, $destinationDirectory);
+        return valid_Image($fileInputName, $dir, $old_img, $destinationDirectory);
     } else if ($_FILES[$fileInputName]['error'] === 4) {
-        return processNoFileError($old_img);
+        return no_file_error($old_img);
     } else {
-        processUploadError($fileInputName, $dir);
+        upload_error($fileInputName, $dir);
     }
 }
 
-function processValidImage($fileInputName, $dir, $old_img, $destinationDirectory)
+function valid_Image($fileInputName, $dir, $old_img, $destinationDirectory)
 {
     $img = $_FILES[$fileInputName]['name'];
     $img_ext = pathinfo($img, PATHINFO_EXTENSION);
@@ -125,7 +125,7 @@ function processValidImage($fileInputName, $dir, $old_img, $destinationDirectory
     }
 }
 
-function processNoFileError($old_img)
+function no_file_error($old_img)
 {
     if ($old_img !== null) {
         return $old_img;
@@ -135,7 +135,7 @@ function processNoFileError($old_img)
     }
 }
 
-function processUploadError($fileInputName, $dir)
+function upload_error($fileInputName, $dir)
 {
     $_SESSION['messsage'] = "Error uploading the file." . $_FILES[$fileInputName]['error'];
     header("Location: $dir");

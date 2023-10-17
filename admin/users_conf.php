@@ -32,7 +32,7 @@ if (isset($_SESSION["auth"])) {
     die();
 }
 
-$first_name = $last_name = $phone = $username = $email = $gender = $password = $password_confirmation = $active = $role  = "";
+$image = $first_name = $last_name = $phone = $username = $email = $gender = $password = $password_confirmation = $active = $role  = "";
 $errors = array();
 
 if (isset($_POST["add-user-btn"])) {
@@ -47,7 +47,6 @@ if (isset($_POST["add-user-btn"])) {
         "password" => "password",
         "conPassword" => "password_confirmation",
     ];
-
 
     foreach ($requiredRegisterFields as $field => $fieldName) {
         if (empty($_POST[$field])) {
@@ -67,6 +66,7 @@ if (isset($_POST["add-user-btn"])) {
     foreach ($requiredRegisterFields as $fieldName => $variableName) {
         ${$variableName} = validate($_POST[$fieldName]);
     }
+    $image = validate_rename_image("image", $_GET["action"] == "profile" ? "profile.php" : "users update.php");
 
     $name = ucwords(concat_str(strtolower($first_name), " ", strtolower($last_name)));
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -151,6 +151,7 @@ if (isset($_POST["add-user-btn"])) {
 
     if ($results) {
         if ($_GET["action"] == "profile") {
+            unset($_GET["action"]);
             re_direct("profile.php", "success", "update profile successfully");
             die();
         }
