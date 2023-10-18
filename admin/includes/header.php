@@ -3,6 +3,12 @@ session_start();
 
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
+
+$id = $_SESSION["auth_user"]["user_id"];
+$conditions = array(
+    array("id" => ["=", $id])
+);
+$user = select("users", $conditions)[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +56,7 @@ require_once("../functions/code.php");
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <img src="./assets/img/User.svg" alt="User">
+                        <img src="../uploads/<?= $user["Img_url"] ?>" alt="User">
                     </span>
                     <div class="text logo-text">
                         <span class="name">Mentor</span>

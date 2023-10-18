@@ -69,13 +69,11 @@ if (isset($_POST["add-user-btn"])) {
     foreach ($requiredRegisterFields as $fieldName => $variableName) {
         ${$variableName} = validate($_POST[$fieldName]);
     }
-    // $image = validate_rename_image("image", $_GET["action"] == "profile" ? "profile.php" : "users.php");
-    $image = validate_rename_image("image", "../dbcon/dbconfig.php");
+    $image = validate_rename_image("image", "../users.php");
 
     if ($image == "") {
         $image = "user.svg";
     }
-
 
     $name = ucwords(concat_str(strtolower($first_name), " ", strtolower($last_name)));
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -146,8 +144,15 @@ if (isset($_POST["add-user-btn"])) {
         die();
     }
 
+    $image = validate_rename_image("image", "users.php", /* "../uploads/" . */ $_GET["img"]);
+
+    if ($image == "") {
+        $image = "user.svg";
+    }
+
     $data = [
         "Name" => $name,
+        "Img_url" => $image,
         "Username" => $username,
         "Email" => $email,
         "Phone" => $phone,

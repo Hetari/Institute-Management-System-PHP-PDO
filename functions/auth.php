@@ -137,7 +137,6 @@ if (isset($_POST["login-btn"])) {
 
         $_SESSION["auth_user"] = [
             "user_id" => $user_id,
-            "user_name" => $username,
             "user_email" => $user_email,
         ];
 

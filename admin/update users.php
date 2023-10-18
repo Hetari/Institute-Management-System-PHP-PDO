@@ -53,9 +53,16 @@ $lname = $nameParts[1];
         </div>
     </nav>
     <!-- End Navbar -->
+
+    <header class="card my-3 mx-4 border-radius-xl shadow-none d-flex justify-content-center align-items-center">
+        <div class="text-center my-3">
+            <img class="img-fluid rounded-circle" style="width: 150px;" src="../uploads/<?= $user["Img_url"] ?>" alt="..." />
+        </div>
+    </header>
+
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="users_conf.php?action=<?= isset($_GET["action"]) ? $_GET["action"] : "" ?>&id=<?= $user['ID'] ?>" method="post" class="row needs-validation" novalidate>
+            <form enctype="multipart/form-data" action="users_conf.php?action=<?= isset($_GET["action"]) ? $_GET["action"] : "" ?>&id=<?= $user['ID'] ?>&img=<?= $user['Img_url'] ?>" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-3 col-md-4 col-sm-12 form-outline">
                     <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control" id="image" name="image" aria-describedby="inputGroupPrepend3 nameFeedback">

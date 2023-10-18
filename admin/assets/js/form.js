@@ -30,7 +30,7 @@ const reSpaces = /^\S*$/;
 const reName = /^[a-z ,.'-]{3,30}$/;
 const reShortcut = /^[a-z ,.'-]{1,30}$/;
 const rePhone = /^(?:(\d{3}))?[- ]?(\d{3})[- ]?(\d{3})$/;
-const reUsername = /^(?!.*[._]$)[a-zA-Z0-9_a-zA-Z0-9]{5,30}$/;
+const reUsername = /^[a-zA-Z][a-zA-Z0-9_]{5,30}$/;
 const reEmail = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
 const rePassword =
   /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
@@ -50,17 +50,17 @@ function validating(re, input, element) {
 
 function validatePassword(e) {
   const input = $(this).val().toLowerCase();
-  validating(reName, input, $(this));
+  return validating(reName, input, $(this));
 }
 
 function validateShortcut(e) {
   const input = $(this).val().toLowerCase();
-  validating(reShortcut, input, $(this));
+  return validating(reShortcut, input, $(this));
 }
 
 function validateName(e) {
   const input = $(this).val().toLowerCase();
-  validating(reName, input, $(this));
+  return validating(reName, input, $(this));
 }
 
 function validateEmail(e) {
@@ -69,7 +69,13 @@ function validateEmail(e) {
 }
 
 function validateUsername(e) {
-  let input = username.val().toLowerCase();
+  let input = $(this).val().trim().toLowerCase();
+  if (
+    !validating(reUsername, input, username) &&
+    $("#username").val().length < 5
+  ) {
+    $("#usernameFeedback").html("Short!");
+  }
   return validating(reUsername, input, username);
 }
 
@@ -80,10 +86,18 @@ function validatePhone(e) {
 }
 
 function passwordCheck(password) {
-  if (password.length > 0 && password.length <= 25) strength += 1;
-  if (password.match(/(?=.*[0-9])/)) strength += 1;
-  if (password.match(/(?=.*[!%&@#$^*?_~<>])/)) strength += 1;
-  if (password.match(/(?=.*[A-Za-z])/)) strength += 1;
+  if (password.length > 0 && password.length <= 25) {
+    strength += 1;
+  }
+  if (password.match(/(?=.*[0-9])/)) {
+    strength += 1;
+  }
+  if (password.match(/(?=.*[!%&@#$^*?_~<>])/)) {
+    strength += 1;
+  }
+  if (password.match(/(?=.*[A-Za-z])/)) {
+    strength += 1;
+  }
   displayBar(strength);
   return strength == 4;
 }
@@ -96,14 +110,12 @@ function passwordConfirmationCheck(password, confirmation) {
   return password === confirmation;
 }
 
-function validateEmail(e) {
-  return validating(reEmail, input, $(this));
-}
 function validateSalary(e) {
   let input = $(this).val().trim().toLowerCase();
   return validating(reSalary, input, $(this));
 }
 
+// sourcery skip: avoid-using-var
 var is_password_valid = false;
 var is_password_confirmed = false;
 
