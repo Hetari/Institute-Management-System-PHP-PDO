@@ -65,7 +65,7 @@ $user = select("users", $conditions)[0];
             <form action="employees_conf.php?id=<?= $employee['ID'] ?>" method="post" class="row needs-validation" novalidate>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
-                    <input name="salary" type="text" class="form-control" value="<?= $employee["Salary"] ?>" autocomplete="off" id="salary" />
+                    <input name="salary" type="number" class="form-control grade-input" value="<?= $employee["Salary"] ?>" autocomplete="off" id="salary" />
                     <div class="invalid-feedback">
                         You must write a valid number for salary!
                     </div>

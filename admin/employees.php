@@ -92,7 +92,7 @@ if (isset($_SESSION['message'])) {
                 </div>
                 <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="salary">Salary</label>
-                    <input name="salary" type="number" class="form-control" autocomplete="off" id="salary" name="salary" />
+                    <input name="salary" type="number" class="form-control grade-input" autocomplete="off" id="salary" name="salary" />
                     <div class="invalid-feedback">
                         You must write a valid number for salary!
                     </div>

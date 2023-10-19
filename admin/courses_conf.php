@@ -30,7 +30,7 @@ if (isset($_SESSION["auth"])) {
     die();
 }
 
-$name = $fees = $subject_id = $description = "";
+$image = $name = $fees = $subject_id = $description = "";
 $errors = array();
 if (isset($_POST["add-course-btn"])) {
     $subject_id = $_POST['hidden'];
@@ -61,8 +61,16 @@ if (isset($_POST["add-course-btn"])) {
     $description = validate($_POST["note"]);
     $subject_id = validate($subject_id);
 
+    $image = validate_rename_image("image", "../users.php");
+
+    if ($image == "") {
+        // !!!
+        $image = "course.png";
+    }
+
     $data = [
         "Name" => $name,
+        "Img_url" => $image,
         "Description" => $description ? $description : null,
         "Fees" => $fees,
         "Subject_id" => $subject_id
@@ -95,38 +103,40 @@ if (isset($_POST["add-course-btn"])) {
             $errors[$field . "Invalid"] = ucfirst($fieldName) . " must only contain alphabetic characters";
         }
     }
-    echo "id: {$id}";
-    echo "<pre>";
-    print_r($errors);
-    echo "</pre>";
 
-    // if (!empty($errors)) {
-    //     re_direct("courses.php", "error", "Error: " . implode(", ", $errors));
-    //     die();
-    // }
+    if (!empty($errors)) {
+        re_direct("courses.php", "error", "Error: " . implode(", ", $errors));
+        die();
+    }
 
     foreach ($requiredRegisterFields as $fieldName => $variableName) {
         ${$variableName} = validate($_POST[$fieldName]);
     }
     $description = validate($_POST["note"]);
     $subject_id = validate($subject_id);
+    $image = validate_rename_image("image", "../users.php");
+
+    if ($image == "") {
+        // !!!
+        $image = "course.png";
+    }
 
     $data = [
         "Name" => $name,
+        "Img_url" => $image,
         "Description" => $description ? $description : null,
         "Fees" => $fees,
         "Subject_id" => $subject_id
     ];
 
     $results = update("courses", $data, $id);
-    echo $results ? "YES" : "NO";
-    // if ($results) {
-    //     re_direct("courses.php", "success", "Update new record successfully");
-    //     die();
-    // } else {
-    //     re_direct("courses.php", "error", "Chose a subject please!");
-    //     die();
-    // }
+    if ($results) {
+        re_direct("courses.php", "success", "Update new record successfully");
+        die();
+    } else {
+        re_direct("courses.php", "error", "Chose a subject please!");
+        die();
+    }
 } else if (isset($_GET['action'])) {
     if ($_GET['action'] == "delete") {
         $id = encrypt_machine("decrypt", $_GET['id']);

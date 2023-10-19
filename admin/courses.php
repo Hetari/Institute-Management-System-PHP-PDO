@@ -62,10 +62,15 @@ if (isset($_SESSION['message'])) {
 
     <div class="card my-2 mx-4 border-radius-xl shadow-none">
         <div class="container-fluid p-4">
-            <form action="courses_conf.php" method="post" class="row needs-validation" novalidate>
+            <form action="courses_conf.php" method="post" enctype="multipart/form-data" class="row needs-validation" novalidate>
                 <input type="hidden" id="hidden" name="hidden" value="">
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" name="image" aria-describedby="inputGroupPrepend3 nameFeedback">
+                </div>
+
+                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label for="name" class="form-label">Course Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
                     <div id="nameFeedback" class="invalid-feedback">
@@ -73,7 +78,7 @@ if (isset($_SESSION['message'])) {
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-6 form-outline">
+                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label class="form-label" for="fees">Course Fees</label>
                     <input name="fees" placeholder="1xxx" type="number" class="form-control" autocomplete="off" id="fees" />
                     <div class="invalid-feedback">
@@ -81,7 +86,7 @@ if (isset($_SESSION['message'])) {
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
+                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
                     <label for="single_select2" class="form-label">Subject</label>
                     <select class="form-select" id="single_select2">
                         <?php
