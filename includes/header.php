@@ -50,14 +50,46 @@ session_start();
       <?php
       if (isset($_SESSION['auth'])) {
       ?>
+        <style>
+          .avatar {
+            color: #000;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            border-radius: 50rem;
+            height: 48px;
+            width: 48px;
+            transition: all 0.2s ease-in-out;
+          }
+
+          .avatar:hover {
+            color: #368b68c9 !important;
+          }
+
+          .avatar-sm {
+            width: 36px !important;
+            height: 36px !important;
+            font-size: 0.875rem;
+          }
+        </style>
 
         <a href="./functions/logout.php" class="get-started-btn">
-          <i class="fa fa-sign-out-alt"></i> Log out
+          <i class="fa fa-sign-out-alt pe-1"></i> Log out
+        </a>
+        <!-- <img class="avatar avatar-sm me-3" src="uploads/user.svg" alt=""> -->
+        <a href="./profile.php" class="avatar avatar-sm me-3">
+          <i class="fa fa-user" class="avatar avatar-sm me-3"></i>
         </a>
       <?php
       } else {
       ?>
-        <a href="./login.php" class="get-started-btn"> Log in</a>
+        <a href="./login.php" class="get-started-btn">
+          <i class="fa fa-sign-in-alt pe-1"></i> Log in
+        </a>
+        <a href="./profile.php" class="avatar avatar-sm me-3">
+          <i class="fa fa-user" class="avatar avatar-sm me-3"></i>
+        </a>
       <?php } ?>
     </div>
   </header>
