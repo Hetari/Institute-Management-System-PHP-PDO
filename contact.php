@@ -1,8 +1,21 @@
 <?php
 $title = "Contact";
 require_once("includes/header.php");
-?>
 
+if (isset($_SESSION['message'])) {
+?>
+  <script>
+    Swal.fire({
+      icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
+      position: 'top',
+      title: <?= "'" . $_SESSION['message'] . "'" ?>,
+      showConfirmButton: false,
+      timer: 2000
+    })
+  </script>
+<?php unset($_SESSION['message']);
+} else
+?>
 <main id="main">
 
   <!-- ======= Breadcrumbs ======= -->

@@ -63,6 +63,19 @@ $lname = $nameParts[1];
 <body>
     <?php
     require_once("admin/includes/script.php");
+    if (isset($_SESSION['message'])) {
+    ?>
+        <script>
+            Swal.fire({
+                icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
+                position: 'top',
+                title: <?= "'" . $_SESSION['message'] . "'" ?>,
+                showConfirmButton: false,
+                timer: 2000
+            })
+        </script>
+    <?php unset($_SESSION['message']);
+    } else
     ?>
     <main class="h-100 text main-content border-radius-lg mx-5">
         <!-- Navbar -->

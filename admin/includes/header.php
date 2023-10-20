@@ -92,34 +92,14 @@ $user = select("users", $conditions)[0];
                             </a>
                         </li>
 
-                        <!-- <li>
-                        <a title="Classes">
-                            <i class="fa-solid fa-chalkboard icon"></i>
-                            <span class="text nav-text">
-                                Classes
-                            </span>
-                        </a>
-                    </li> -->
-
                         <li>
                             <a href="./courses.php" title="Courses">
-                                <!-- <i class="fa-solid fa-table-columns icon"></i> -->
                                 <i class="fa-solid fa-chalkboard icon"></i>
-
                                 <span class="text nav-text">
                                     Courses
                                 </span>
                             </a>
                         </li>
-
-                        <!-- <li>Today's
-                        <a href="#" title="Students">
-                            <i class="fa-solid fa-user-graduate icon"></i>
-                            <span class="text nav-text">
-                                Students
-                            </span>
-                        </a>
-                    </li> -->
 
                         <li>
                             <a href="./employees.php" title="Employees">
@@ -127,47 +107,6 @@ $user = select("users", $conditions)[0];
                                 <span class="text nav-text">
                                     Employees
                                 </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./departments.php" title="Departments">
-                                <i class="fa-solid fa-building-columns icon"></i>
-                                <span class="text nav-text">
-                                    Departments
-                                </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./money.php" title="Money">
-                                <i class="fa-solid fa-wallet icon"></i>
-                                <span class="text nav-text">Money</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./timetable.php" title="Time Table">
-                                <i class="fa-solid fa-check-double icon"></i>
-                                <span class="text nav-text">
-                                    Time Table
-                                </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./grades.php" title="Grades">
-                                <i class="fa-solid fa-file-circle-question icon"></i>
-                                <span class="text nav-text">
-                                    Grades
-                                </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./reports.php" title="Reports">
-                                <i class="fa-solid fa-print icon"></i>
-                                <span class="text nav-text">Reports</span>
                             </a>
                         </li>
                     </ul>

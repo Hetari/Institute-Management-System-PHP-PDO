@@ -6,6 +6,20 @@ require_once("includes/header.php");
 require_once("dbcon/dbconfig.php");
 
 $employees = select("employees");
+
+if (isset($_SESSION['message'])) {
+?>
+  <script>
+    Swal.fire({
+      icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
+      position: 'top',
+      title: <?= "'" . $_SESSION['message'] . "'" ?>,
+      showConfirmButton: false,
+      timer: 2000
+    })
+  </script>
+<?php unset($_SESSION['message']);
+} else
 ?>
 <main id="main">
 
@@ -23,16 +37,16 @@ $employees = select("employees");
     <div class="container">
       <div class="row">
         <?php
-        foreach ($employees as $key => $value) {
-          $conditions = array(
-            array("ID" => ["=", $value['User_id']])
-          );
-          $user_name = select("users", $conditions, "Name")[0];
+      foreach ($employees as $key => $value) {
+        $conditions = array(
+          array("ID" => ["=", $value['User_id']])
+        );
+        $user_name = select("users", $conditions, "Name")[0];
 
-          $conditions = array(
-            array("ID" => ["=", $value['Subject_id']])
-          );
-          $subject_name = select("subjects", $conditions, "Name")[0];
+        $conditions = array(
+          array("ID" => ["=", $value['Subject_id']])
+        );
+        $subject_name = select("subjects", $conditions, "Name")[0];
         ?>
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
@@ -51,7 +65,7 @@ $employees = select("employees");
             </div>
           </div>
         <?php
-        }
+      }
         ?>
       </div>
     </div>
