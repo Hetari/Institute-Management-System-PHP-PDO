@@ -3,7 +3,6 @@ session_start();
 require_once("../dbcon/dbconfig.php");
 require_once("../functions/code.php");
 
-session_start();
 ?>
 
 <body>
@@ -58,10 +57,11 @@ if (isset($_POST["add-course-btn"])) {
     foreach ($requiredRegisterFields as $fieldName => $variableName) {
         ${$variableName} = validate($_POST[$fieldName]);
     }
+
     $description = validate($_POST["note"]);
     $subject_id = validate($subject_id);
 
-    $image = validate_rename_image("image", "../users.php");
+    $image = validate_rename_image("image", "../courses.php");
 
     if ($image == "") {
         // !!!
@@ -114,7 +114,8 @@ if (isset($_POST["add-course-btn"])) {
     }
     $description = validate($_POST["note"]);
     $subject_id = validate($subject_id);
-    $image = validate_rename_image("image", "../users.php");
+
+    $image = validate_rename_image("image", "courses.php");
 
     if ($image == "") {
         // !!!

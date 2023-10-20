@@ -33,7 +33,7 @@ if (isset($_POST["login-btn"])) {
         array("Email" => ["=", $email])
     );
 
-    $results = select("users", $conditions, "*");
+    $results = select("users", $conditions);
 
     if (!count($results)) {
         re_direct("../login.php", "warning", "The email or the password are not correct");
@@ -91,13 +91,14 @@ if (isset($_POST["login-btn"])) {
         }
     }
 
-    $pattern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).*$/';
-    if (!preg_match($pattern, $password)) {
-        $errors["Password"] = "Password should contains numbers, alphabets (both capital and small), and symbols!";
-    }
+    // $pattern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).*$/';
+
+    // if (!preg_match($pattern, $password)) {
+    //     $errors["Password"] = "Password should contain numbers, alphabets (both capital and small), and symbols!";
+    // }
 
     if (!empty($errors)) {
-        re_direct("../login.php", "error", "Error: " . implode(", ", $errors) . " fields is required!");
+        re_direct("../login.php", "error", "Error: " . implode(", ", $errors) . " fields are required!");
         die();
     }
 
@@ -106,13 +107,13 @@ if (isset($_POST["login-btn"])) {
     }
 
     $name = ucwords(concat_str(strtolower($first_name), " ", strtolower($last_name)));
-    $password = password_hash($password, PASSWORD_DEFAULT);
-
 
     if (!$password === $password_confirmation) {
         re_direct("../login.php", "info", "Passwords doesn't match!");
         die();
     }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
     $data = [
         "name" => $name,
@@ -144,7 +145,7 @@ if (isset($_POST["login-btn"])) {
         re_direct("../index.php", "success", "Logged in Successfully");
         die();
     } else {
-        re_direct("../login.php#pills-login", "info", "Email is already exists!");
+        re_direct("../login.php#pills-login", "info", "Email is already exists Or password is so week!");
         die();
     }
 }

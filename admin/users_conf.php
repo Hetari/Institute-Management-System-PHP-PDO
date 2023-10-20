@@ -144,7 +144,7 @@ if (isset($_POST["add-user-btn"])) {
         die();
     }
 
-    $image = validate_rename_image("image", "users.php", /* "../uploads/" . */ $_GET["img"]);
+    $image = validate_rename_image("image", "users.php", $_GET["img"]);
 
     if ($image == "") {
         $image = "user.svg";

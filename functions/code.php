@@ -10,12 +10,8 @@ function concat_str(...$args)
 $key = "91da54310d2cb91d96ed9412123daa74e8901b93df2300e160307273c7b7b147";
 function re_direct($url, $icon, $msg)
 {
-    if ($msg != "") {
-        $_SESSION['message'] = $msg;
-    }
-    if ($icon != "") {
-        $_SESSION['icon'] = $icon;
-    }
+    $_SESSION['message'] = $msg;
+    $_SESSION['icon'] = $icon;
     header("Location:" . $url);
 }
 
@@ -51,13 +47,6 @@ function validate($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-
-// function getIntValue($s)
-// {
-//     if (!is_numeric($s))
-//         return false;
-//     return (int)$s;
-// }
 
 // Function to flatten the associative array
 /**

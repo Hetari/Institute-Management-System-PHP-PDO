@@ -8,5 +8,4 @@ if (isset($_SESSION['auth'])) {
 }
 re_direct("../index.php", "success", "Logging out...");
 
-
 session_destroy();

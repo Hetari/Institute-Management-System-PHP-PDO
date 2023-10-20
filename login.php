@@ -22,24 +22,16 @@ require_once("functions/code.php")
 
 <body>
   <script src="assets/js/sweetalert2.js"></script>
-  <?php
-  if (isset($_SESSION['message'])) {
-    $already = false;
-    if ($_SESSION['message'] == "Email is already exists!") {
-      $already = true;
-    }
-  ?>
-    <script>
-      Swal.fire({
-        title: "Wait!",
-        icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
-        text: <?= "'" . $_SESSION['message'] . "'" ?>,
-        confirmButtonColor: '#151515',
-        backdrop: 'rgba(63, 194, 139, 0.5)'
-      })
-    </script>
+  <script>
+    Swal.fire({
+      title: "Wait!",
+      icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
+      text: <?= "'" . $_SESSION['message'] . "'" ?>,
+      confirmButtonColor: '#151515',
+      backdrop: 'rgba(63, 194, 139, 0.5)'
+    })
+  </script>
   <?php unset($_SESSION['message']);
-  }
   ?>
 
   <!-- Section: Design Block -->
