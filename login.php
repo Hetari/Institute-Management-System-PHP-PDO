@@ -22,16 +22,20 @@ require_once("functions/code.php")
 
 <body>
   <script src="assets/js/sweetalert2.js"></script>
-  <script>
-    Swal.fire({
-      title: "Wait!",
-      icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
-      text: <?= "'" . $_SESSION['message'] . "'" ?>,
-      confirmButtonColor: '#151515',
-      backdrop: 'rgba(63, 194, 139, 0.5)'
-    })
-  </script>
+  <?php
+  if (isset($_SESSION['message'])) {
+  ?>
+    <script>
+      Swal.fire({
+        icon: <?= "'" . $_SESSION['icon'] . "'" ?>,
+        position: 'top',
+        title: <?= "'" . $_SESSION['message'] . "'" ?>,
+        showConfirmButton: false,
+        timer: 2000
+      })
+    </script>
   <?php unset($_SESSION['message']);
+  } else
   ?>
 
   <!-- Section: Design Block -->
@@ -201,13 +205,13 @@ require_once("functions/code.php")
   <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
   <?php
-  if ($already) {
+if ($already) {
   ?>
     <script>
       document.querySelector("#tab-login").click()
     </script>
   <?php
-  }
+}
   ?>
 
 

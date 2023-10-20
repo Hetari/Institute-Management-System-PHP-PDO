@@ -46,6 +46,11 @@ if (isset($_POST["login-btn"])) {
         die();
     }
 
+    if (!$results[0]["Is_active"]) {
+        re_direct("../login.php", "error", "Your account is banned!");
+        die();
+    }
+
     $_SESSION["auth"] = true;
 
     $UserData = $results[0];

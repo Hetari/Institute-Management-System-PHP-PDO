@@ -86,9 +86,6 @@ function validatePhone(e) {
 }
 
 function passwordCheck(password) {
-  if (password.length > 0 && password.length <= 25) {
-    strength += 1;
-  }
   if (password.match(/(?=.*[0-9])/)) {
     strength += 1;
   }
@@ -96,6 +93,9 @@ function passwordCheck(password) {
     strength += 1;
   }
   if (password.match(/(?=.*[A-Za-z])/)) {
+    strength += 1;
+  }
+  if (password.length >= 8 && password.length <= 25) {
     strength += 1;
   }
   displayBar(strength);
