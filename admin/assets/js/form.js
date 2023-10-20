@@ -28,7 +28,7 @@ $(".gender").on("change", function () {
 
 const reSpaces = /^\S*$/;
 const reName = /^[a-z ,.'-]{3,30}$/;
-const reShortcut = /^[a-z ,.'-]{1,30}$/;
+const reShortcut = /^[a-z ,.'-]{1,20}$/;
 const rePhone = /^(?:(\d{3}))?[- ]?(\d{3})[- ]?(\d{3})$/;
 const reUsername = /^[a-zA-Z][a-zA-Z0-9_]{5,30}$/;
 const reEmail = /^([_\-\.a-zA-Z0-9]+)@([_\-\.a-zA-Z]+)\.([a-zA-Z]){2,4}$/;
@@ -65,6 +65,10 @@ function validateName(e) {
 
 function validateEmail(e) {
   let input = $(this).val().trim().toLowerCase();
+  if (!validating(reEmail, input, $(this))) {
+    $("#emailFeedback").html("Invalid email format!");
+    return false;
+  }
   return validating(reEmail, input, $(this));
 }
 
@@ -74,7 +78,25 @@ function validateUsername(e) {
     !validating(reUsername, input, username) &&
     $("#username").val().length < 5
   ) {
-    $("#usernameFeedback").html("Short!");
+    $("#usernameFeedback").html("Short username!");
+  }
+
+  if (
+    !validating(reUsername, input, username) &&
+    $("#username").val().length > 20
+  ) {
+    $("#usernameFeedback").html("Long username!");
+  }
+
+  if (
+    !validating(reUsername, input, username) &&
+    !/^[a-zA-Z0-9_]+$/.test(input)
+  ) {
+    $("#usernameFeedback").html("Invalid characters in username!");
+  }
+
+  if (!validating(reUsername, input, username) && /^\d/.test(input)) {
+    $("#usernameFeedback").html("The first character cannot be a number!");
   }
   return validating(reUsername, input, username);
 }

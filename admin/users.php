@@ -111,7 +111,7 @@ if (isset($_SESSION['message'])) {
                     <input type="text" class="form-control" id="email" aria-describedby="emailHelp" autocomplete="off" placeholder="name@domain.com" name="email" required>
                     <div id="emailHelp" class="form-text">
                     </div>
-                    <small class="form-text text-danger invalid-feedback">Email must be valid!</small>
+                    <small id="emailFeedback" class="form-text text-danger invalid-feedback">Email must be valid!</small>
                 </div>
 
                 <div class="my-2 col-lg-2 col-md-2 col-sm-3 form-outline">
