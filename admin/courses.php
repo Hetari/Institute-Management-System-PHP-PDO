@@ -65,12 +65,12 @@ if (isset($_SESSION['message'])) {
             <form action="courses_conf.php" method="post" enctype="multipart/form-data" class="row needs-validation" novalidate>
                 <input type="hidden" id="hidden" name="hidden" value="">
 
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control" id="image" name="image" aria-describedby="inputGroupPrepend3 nameFeedback">
                 </div>
 
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="name" class="form-label">Course Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" required>
                     <div id="nameFeedback" class="invalid-feedback">
@@ -78,15 +78,7 @@ if (isset($_SESSION['message'])) {
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
-                    <label class="form-label" for="fees">Course Fees</label>
-                    <input name="fees" placeholder="1xxx" type="number" class="form-control" autocomplete="off" id="fees" />
-                    <div class="invalid-feedback">
-                        You must write a valid number for fees!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="single_select2" class="form-label">Subject</label>
                     <select class="form-select" id="single_select2">
                         <?php
@@ -157,9 +149,6 @@ if (isset($_SESSION['message'])) {
                                             Name
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            fee
-                                        </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             subject
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
@@ -184,11 +173,6 @@ if (isset($_SESSION['message'])) {
                                             <td class="align-middle">
                                                 <span class="text-secondary text-xs font-weight-bold">
                                                     <?= $value['Name'] ?>
-                                                </span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold">
-                                                    <?= $value['Fees'] ?>
                                                 </span>
                                             </td>
                                             <td class="align-middle">

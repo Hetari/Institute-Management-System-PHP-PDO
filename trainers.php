@@ -42,19 +42,12 @@ if (isset($_SESSION['message'])) {
           array("ID" => ["=", $value['User_id']])
         );
         $user_name = select("users", $conditions, "Name")[0];
-
-        $conditions = array(
-          array("ID" => ["=", $value['Subject_id']])
-        );
-        $subject_name = select("subjects", $conditions, "Name")[0];
         ?>
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
               <div class="member-content">
-                <h4><?= $user_name["Name"] ?></h4>
                 <span><?= $subject_name["Name"] ?></span>
-                <p><?= $value["Description"] ?></p>
                 <div class="social">
                   <a href=""><i class="fab fa-twitter"></i></a>
                   <a href=""><i class="fab fa-facebook"></i></a>

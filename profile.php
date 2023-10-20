@@ -160,7 +160,7 @@ if (!isset($_SESSION["auth"])) {
                                     <div class="col-12">
                                         <div class="card mb-2 mb-md-0">
                                             <div class="card-body">
-                                                <p class="mb-2"><span class="fw-bold">Skills</span> Project Status
+                                                <p class="mb-2"><span class="fw-bold">Courses</span> enrolled
                                                 </p>
                                                 <?php
                                                 foreach ($enrolled as $key => $value) {

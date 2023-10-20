@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 13, 2023 at 09:10 PM
+-- Generation Time: Oct 21, 2023 at 12:22 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,16 +31,10 @@ CREATE TABLE `courses` (
   `ID` int(11) NOT NULL,
   `Name` varchar(40) NOT NULL,
   `Description` varchar(200) DEFAULT NULL,
-  `Fees` float NOT NULL,
-  `Subject_id` int(11) NOT NULL
+  `Img_url` varchar(255) NOT NULL,
+  `Subject_id` int(11) NOT NULL,
+  `Employee_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `courses`
---
-
-INSERT INTO `courses` (`ID`, `Name`, `Description`, `Fees`, `Subject_id`) VALUES
-(1, '1A', 'ldhfkjdhk', 123456, 35);
 
 -- --------------------------------------------------------
 
@@ -60,8 +54,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`ID`, `User_id`, `Salary`, `Join_date`) VALUES
-(15, 14, 123, '2023-10-08 21:28:16'),
-(16, 9, 123564, '2023-10-08 21:28:24');
+(18, 9, 1000, '2023-10-20 09:16:22');
 
 -- --------------------------------------------------------
 
@@ -73,30 +66,6 @@ CREATE TABLE `enrolled_courses` (
   `ID` int(11) NOT NULL,
   `Enrolled_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `Student_id` int(11) NOT NULL,
-  `Course_id` int(11) NOT NULL,
-  `Employee_id` int(11) NOT NULL,
-  `Grade_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `grades`
---
-
-CREATE TABLE `grades` (
-  `ID` int(11) NOT NULL,
-  `Presentation` float NOT NULL,
-  `Participation` float NOT NULL,
-  `Homework` float NOT NULL,
-  `Attendance` float NOT NULL,
-  `Story` float NOT NULL,
-  `Quiz1` float NOT NULL,
-  `Quiz2` float NOT NULL,
-  `Final_exam` float NOT NULL,
-  `Sum` float NOT NULL,
-  `Average` float NOT NULL,
-  `Student_id` int(11) NOT NULL,
   `Course_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -107,18 +76,8 @@ CREATE TABLE `grades` (
 --
 
 CREATE TABLE `ims` (
-  `ID` int(11) NOT NULL,
-  `Text_name` varchar(255) NOT NULL,
-  `Text` varchar(255) NOT NULL,
-  `Page_id` int(11) NOT NULL
+  `ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ims`
---
-
-INSERT INTO `ims` (`ID`, `Text_name`, `Text`, `Page_id`) VALUES
-(2, 'Hero_section', 'Learning Today,\r\nLeading Tomorrow', 1);
 
 -- --------------------------------------------------------
 
@@ -143,35 +102,6 @@ INSERT INTO `roles` (`ID`, `Name`, `Create_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
---
-
-CREATE TABLE `student` (
-  `ID` int(11) NOT NULL,
-  `Name` varchar(70) NOT NULL,
-  `phone` varchar(25) NOT NULL,
-  `Address` varchar(40) NOT NULL,
-  `Registration Date` date NOT NULL,
-  `Gender` binary(10) NOT NULL,
-  `DOB` date NOT NULL,
-  `Email` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `studies`
---
-
-CREATE TABLE `studies` (
-  `ID` int(11) NOT NULL,
-  `Student_id` int(11) NOT NULL,
-  `Enrolled_course_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `subjects`
 --
 
@@ -186,24 +116,7 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`ID`, `Name`, `Shortcut`) VALUES
-(35, 'En', 'E'),
-(38, 'Sjkdlhksjdsdd', 'Ksdnjk');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `text book`
---
-
-CREATE TABLE `text book` (
-  `ISBN` int(11) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Author` varchar(50) NOT NULL,
-  `Edition` int(11) NOT NULL,
-  `price` float NOT NULL,
-  `Subject_id` int(11) NOT NULL,
-  `Course_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(39, 'English', 'E');
 
 -- --------------------------------------------------------
 
@@ -214,6 +127,7 @@ CREATE TABLE `text book` (
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
+  `Img_url` varchar(255) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Phone` varchar(30) DEFAULT NULL,
@@ -228,37 +142,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`ID`, `Name`, `Username`, `Email`, `Phone`, `Password`, `Gender`, `Is_active`, `Role_id`, `Created_at`) VALUES
-(9, 'Brhoome Hetari', 'brhoom', 'q@q.com', '123456789', '$2y$10$Wtmp/OVB/hajCFpP3L876OOqo9aheOdb4qhmBbM7I9HwetwAajdaW', 1, 1, 1, '2023-10-05 19:41:09'),
-(14, 'Mohammed Tala', 'Brho', 'k@k.com', '77777777', '$2y$10$x88D0jh24PANqsN8xU7k0ewkeJLwEu8rq09P1pibuLVTTwj1vejZq', 1, 1, 2, '2023-10-06 12:42:05'),
-(15, 'Ashraf Tala', 'Brhoos', 's@s.com', '77777777', '$2y$10$J.ouDhm1MxKZ/6/dDNzudO5mveAw6Z7q/gNAsqUdx9XZGcmNj948O', 1, 1, 2, '2023-10-06 12:51:07'),
-(17, 'A Hhhh', 'qwer', 'qq@qq.com', '123456789', '$2y$10$aPKUq5ubWR9cExb5e.dgOuOM/ARxlGVLylelqkbwi2AyaXLC0mN0G', 1, 1, 1, '2023-10-06 13:25:53'),
-(27, 'Test Test', 'test', 'e@e.com', '123456789sd', '$2y$10$BU.cZlPV081Gx2IpUUyON.VkCmN18y6nU2r8KMS/c/VT41HzzXNqW', 1, 1, 2, '2023-10-10 20:17:40'),
-(28, 'Test Test', 'qwertlkj', 're@r.com', '123456789', '$2y$10$.llmU9RP.BeluqniBgb6L.XBRZYp8LHG9N9gC5RPHF9RMBu./6UzC', 1, 1, 2, '2023-10-10 20:23:40');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_pages`
---
-
-CREATE TABLE `user_pages` (
-  `ID` int(11) NOT NULL,
-  `Page_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_pages`
---
-
-INSERT INTO `user_pages` (`ID`, `Page_name`) VALUES
-(1, 'index'),
-(2, 'contact'),
-(3, 'courses'),
-(4, 'events'),
-(5, 'login'),
-(6, 'pricing'),
-(7, 'trainers');
+INSERT INTO `users` (`ID`, `Name`, `Img_url`, `Username`, `Email`, `Phone`, `Password`, `Gender`, `Is_active`, `Role_id`, `Created_at`) VALUES
+(9, 'Brhoome Hetari', '16976624901.png', 'brhoom', 'q@q.com', '123456789', '$2y$10$Wtmp/OVB/hajCFpP3L876OOqo9aheOdb4qhmBbM7I9HwetwAajdaW', 1, 1, 1, '2023-10-05 19:41:09'),
+(29, 'Test Test', '1697570769Screenshot from 2023-10-15 17-01-45.png', 'qwerw', 'qw@qw.com', '123456789', '$2y$10$tWypcH8HJ7OX5VjrSypec.GkKnV2ZhXX/GXd8Ia/0Xn.aDXKo7nEe', 2, 0, 2, '2023-10-17 19:26:09');
 
 --
 -- Indexes for dumped tables
@@ -269,7 +155,8 @@ INSERT INTO `user_pages` (`ID`, `Page_name`) VALUES
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `Subject_id` (`Subject_id`);
+  ADD KEY `Subject_id` (`Subject_id`),
+  ADD KEY `Employee_id` (`Employee_id`);
 
 --
 -- Indexes for table `employees`
@@ -284,24 +171,13 @@ ALTER TABLE `employees`
 ALTER TABLE `enrolled_courses`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Student_id` (`Student_id`),
-  ADD KEY `Course_id` (`Course_id`),
-  ADD KEY `Employee_id` (`Employee_id`),
-  ADD KEY `Grade_id` (`Grade_id`);
-
---
--- Indexes for table `grades`
---
-ALTER TABLE `grades`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Student_id` (`Student_id`),
   ADD KEY `Course_id` (`Course_id`);
 
 --
 -- Indexes for table `ims`
 --
 ALTER TABLE `ims`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Page_id` (`Page_id`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `roles`
@@ -310,34 +186,10 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `phone` (`phone`);
-
---
--- Indexes for table `studies`
---
-ALTER TABLE `studies`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Enrolled_course_id` (`Enrolled_course_id`),
-  ADD KEY `Student_id` (`Student_id`);
-
---
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `text book`
---
-ALTER TABLE `text book`
-  ADD PRIMARY KEY (`ISBN`),
-  ADD UNIQUE KEY `Name` (`Name`),
-  ADD KEY `Course_id` (`Course_id`),
-  ADD KEY `Subject_id` (`Subject_id`);
 
 --
 -- Indexes for table `users`
@@ -349,12 +201,6 @@ ALTER TABLE `users`
   ADD KEY `role_id` (`Role_id`);
 
 --
--- Indexes for table `user_pages`
---
-ALTER TABLE `user_pages`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -362,31 +208,25 @@ ALTER TABLE `user_pages`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `enrolled_courses`
 --
 ALTER TABLE `enrolled_courses`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `grades`
---
-ALTER TABLE `grades`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ims`
 --
 ALTER TABLE `ims`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -395,34 +235,16 @@ ALTER TABLE `roles`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `studies`
---
-ALTER TABLE `studies`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT for table `user_pages`
---
-ALTER TABLE `user_pages`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
@@ -432,55 +254,27 @@ ALTER TABLE `user_pages`
 -- Constraints for table `courses`
 --
 ALTER TABLE `courses`
-  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`Subject_id`) REFERENCES `subjects` (`ID`);
+  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`Subject_id`) REFERENCES `subjects` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `courses_ibfk_2` FOREIGN KEY (`Employee_id`) REFERENCES `employees` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `employees`
 --
 ALTER TABLE `employees`
-  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`User_id`) REFERENCES `users` (`ID`);
+  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`User_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `enrolled_courses`
 --
 ALTER TABLE `enrolled_courses`
   ADD CONSTRAINT `enrolled_courses_ibfk_1` FOREIGN KEY (`Course_id`) REFERENCES `courses` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `enrolled_courses_ibfk_2` FOREIGN KEY (`Employee_id`) REFERENCES `employees` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `enrolled_courses_ibfk_3` FOREIGN KEY (`Grade_id`) REFERENCES `grades` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `enrolled_courses_ibfk_4` FOREIGN KEY (`Student_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `grades`
---
-ALTER TABLE `grades`
-  ADD CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`Student_id`) REFERENCES `student` (`ID`),
-  ADD CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`Course_id`) REFERENCES `courses` (`ID`);
-
---
--- Constraints for table `ims`
---
-ALTER TABLE `ims`
-  ADD CONSTRAINT `ims_ibfk_1` FOREIGN KEY (`Page_id`) REFERENCES `user_pages` (`ID`);
-
---
--- Constraints for table `studies`
---
-ALTER TABLE `studies`
-  ADD CONSTRAINT `studies_ibfk_1` FOREIGN KEY (`Enrolled_course_id`) REFERENCES `enrolled_courses` (`ID`),
-  ADD CONSTRAINT `studies_ibfk_2` FOREIGN KEY (`Student_id`) REFERENCES `student` (`ID`);
-
---
--- Constraints for table `text book`
---
-ALTER TABLE `text book`
-  ADD CONSTRAINT `text book_ibfk_1` FOREIGN KEY (`Course_id`) REFERENCES `courses` (`ID`),
-  ADD CONSTRAINT `text book_ibfk_2` FOREIGN KEY (`Subject_id`) REFERENCES `subjects` (`ID`);
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`Role_id`) REFERENCES `roles` (`ID`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`Role_id`) REFERENCES `roles` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

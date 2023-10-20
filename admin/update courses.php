@@ -63,12 +63,12 @@ $course = select("courses", $conditions)[0];
             <form action="courses_conf.php?id=<?= $course['ID'] ?>&img=<?= $course['Img_url'] ?>" method="post" enctype="multipart/form-data" class="row needs-validation" novalidate>
                 <input type="hidden" id="hidden" name="hidden" value="">
 
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control" id="image" name="image" aria-describedby="inputGroupPrepend3 nameFeedback">
                 </div>
 
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="name" class="form-label">Course Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="inputGroupPrepend3 nameFeedback" placeholder="1A" value="<?= $course['Name'] ?>" required>
                     <div id="nameFeedback" class="invalid-feedback">
@@ -76,15 +76,7 @@ $course = select("courses", $conditions)[0];
                     </div>
                 </div>
 
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
-                    <label class="form-label" for="fees">Course Fees</label>
-                    <input name="fees" placeholder="1xxx" type="text" class="form-control" value="<?= $course['Fees'] ?>" autocomplete="off" id="fees" />
-                    <div class="invalid-feedback">
-                        You must write a valid number for fees!
-                    </div>
-                </div>
-
-                <div class="my-2 col-lg-6 col-md-6 col-sm-12 form-outline">
+                <div class="my-2 col-lg-4 col-md-4 col-sm-12 form-outline">
                     <label for="single_select2" class="form-label d-block">Subject</label>
                     <select class="form-select">
                         <?php
