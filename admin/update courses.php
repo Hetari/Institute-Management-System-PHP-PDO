@@ -89,7 +89,7 @@ $course = select("courses", $conditions)[0];
                     <select class="form-select">
                         <?php
                         $conditions = array(
-                            "id" => ["=", $course["Subject_id"]]
+                            "ID" => ["=", $course["Subject_id"]]
                         );
                         $subject = select("subjects", $conditions)[0];
                         $all_subjects = select("subjects");

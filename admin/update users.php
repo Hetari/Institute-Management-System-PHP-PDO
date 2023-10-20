@@ -21,7 +21,7 @@ if (isset($_SESSION["auth"])) {
 
 $id = encrypt_machine("decrypt", $_GET['id']);
 $conditions = array(
-    array("id" => ["=", $id])
+    array("ID" => ["=", $id])
 );
 $user = select("users", $conditions)[0];
 $nameParts = explode(" ", $user['Name']);

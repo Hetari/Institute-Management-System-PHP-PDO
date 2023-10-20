@@ -30,7 +30,7 @@ if (isset($_POST["login-btn"])) {
     }
 
     $conditions = array(
-        array("email" => ["=", $email])
+        array("Email" => ["=", $email])
     );
 
     $results = select("users", $conditions, "*");

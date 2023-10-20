@@ -41,8 +41,6 @@ session_start();
           <li><a href="about.php">About</a></li>
           <li><a href="courses.php">Courses</a></li>
           <li><a href="trainers.php">Trainers</a></li>
-          <li><a href="events.php">Events</a></li>
-          <li><a href="pricing.php">Pricing</a></li>
           <li><a href="contact.php">Contact</a></li>
         </ul>
         <i class="fas fa-list mobile-nav-toggle"></i>

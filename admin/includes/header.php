@@ -6,7 +6,7 @@ require_once("../functions/code.php");
 
 $id = $_SESSION["auth_user"]["user_id"];
 $conditions = array(
-    array("id" => ["=", $id])
+    array("ID" => ["=", $id])
 );
 $user = select("users", $conditions)[0];
 ?>

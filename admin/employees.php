@@ -176,7 +176,7 @@ if (isset($_SESSION['message'])) {
                                     foreach ($all_employees as $key => $user) {
                                         $id = encrypt_machine("encrypt", $user['ID']);
                                         $conditions = array(
-                                            array("id" => ["=", $user['User_id']])
+                                            array("ID" => ["=", $user['User_id']])
                                         );
                                         $users = select("users", $conditions)[0];
                                     ?>

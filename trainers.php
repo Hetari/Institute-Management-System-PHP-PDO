@@ -1,6 +1,11 @@
 <?php
-$title = "Trainers";
+require_once("functions/code.php");
+
+$title = "trainers";
 require_once("includes/header.php");
+require_once("dbcon/dbconfig.php");
+
+$employees = select("employees");
 ?>
 <main id="main">
 
@@ -16,69 +21,39 @@ require_once("includes/header.php");
   <!-- ======= Trainers Section ======= -->
   <section id="trainers" class="trainers">
     <div class="container">
-
       <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-            <div class="member-content">
-              <h4>Walter White</h4>
-              <span>Web Development</span>
-              <p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut
-                aut aut
-              </p>
-              <div class="social">
-                <a href=""><i class="fab fa-twitter"></i></a>
-                <a href=""><i class="fab fa-facebook"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-                <a href=""><i class="fab fa-linkedin"></i></a>
+        <?php
+        foreach ($employees as $key => $value) {
+          $conditions = array(
+            array("ID" => ["=", $value['User_id']])
+          );
+          $user_name = select("users", $conditions, "Name")[0];
+
+          $conditions = array(
+            array("ID" => ["=", $value['Subject_id']])
+          );
+          $subject_name = select("subjects", $conditions, "Name")[0];
+        ?>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4><?= $user_name["Name"] ?></h4>
+                <span><?= $subject_name["Name"] ?></span>
+                <p><?= $value["Description"] ?></p>
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-telegram"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-            <div class="member-content">
-              <h4>Sarah Jhinson</h4>
-              <span>Marketing</span>
-              <p>
-                Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum
-                temporibus
-              </p>
-              <div class="social">
-                <a href=""><i class="fab fa-twitter"></i></a>
-                <a href=""><i class="fab fa-facebook"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-                <a href=""><i class="fab fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-            <div class="member-content">
-              <h4>William Anderson</h4>
-              <span>Content</span>
-              <p>
-                Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-              </p>
-              <div class="social">
-                <a href=""><i class="fab fa-twitter"></i></a>
-                <a href=""><i class="fab fa-facebook"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-                <a href=""><i class="fab fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <?php
+        }
+        ?>
       </div>
-
     </div>
   </section><!-- End Trainers Section -->
 
