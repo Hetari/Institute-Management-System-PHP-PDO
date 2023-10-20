@@ -189,7 +189,7 @@ if (isset($_SESSION['message'])) {
                       <?= $row["Name"] ?>
                     </a>
                   </h3>
-                  <p class="price">$<?= $row["Fees"] ?></p>
+
                 </div>
 
                 <p><?= $row["Description"] ?></p>

@@ -2,9 +2,7 @@
 session_start();
 require_once("../dbcon/dbconfig.php");
 require_once("code.php");
-?>
 
-<?php
 $first_name = $last_name = $phone = $username = $email = $gender = $password = $password_confirmation = $terms = "";
 $errors = array();
 

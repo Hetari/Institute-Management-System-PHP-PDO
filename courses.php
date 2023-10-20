@@ -1,10 +1,28 @@
 <?php
+session_start();
+
 $title = "Course";
 require_once("functions/code.php");
 require_once("includes/header.php");
 require_once("./dbcon/dbconfig.php");
 
 $courses = select("courses");
+
+if (isset($_SESSION["auth_user"])) {
+  if (isset($_SESSION["auth_user"]["user_id"])) {
+    $login = true;
+    $id = $_SESSION["auth_user"]["user_id"];
+  } else {
+    $login = false;
+    $id = null;
+  }
+}
+
+$conditions = array(
+  array("Student_id" => ["=",  $id])
+);
+$enrolled = select("enrolled_courses", $conditions)[0];
+
 ?>
 
 <main id="main">
@@ -43,13 +61,12 @@ $courses = select("courses");
                 <div class="course-content">
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <h3 class="btn btn-success btn-sm">
-                      <a href="course-details.php" class="text-white">
-                        <?= $row["Name"] ?>
+                      <a href="admin/enrolled_courses_conf.php?id=<?= $id ?>&course_id=<?= $row["ID"] ?>&login=<?= $login ?>" class="text-white">
+                        <?php echo ($enrolled["Course_id"] ==  $row["ID"]) ? "Enrolled" : "Enroll" ?>
+
                       </a>
                     </h3>
-                    <p class="price">$<?= $row["Fees"] ?></p>
                   </div>
-
                   <p><?= $row["Description"] ?></p>
                   <div class="trainer d-flex justify-content-between align-items-center">
                     <div class="trainer-profile d-flex align-items-center">
