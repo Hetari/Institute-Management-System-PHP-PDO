@@ -47,7 +47,7 @@ if (isset($_SESSION['message'])) {
             <div class="member">
               <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
               <div class="member-content">
-                <span><?= $subject_name["Name"] ?></span>
+                <span><?= $user_name["Name"] ?></span>
                 <div class="social">
                   <a href=""><i class="fab fa-twitter"></i></a>
                   <a href=""><i class="fab fa-facebook"></i></a>

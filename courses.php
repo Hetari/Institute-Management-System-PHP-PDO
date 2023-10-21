@@ -62,7 +62,7 @@ $enrolled = select("enrolled_courses", $conditions)[0];
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <h3 class="btn btn-success btn-sm">
                       <a href="admin/enrolled_courses_conf.php?id=<?= $id ?>&course_id=<?= $row["ID"] ?>&login=<?= $login ?>" class="text-white">
-                        <?php echo ($enrolled["Course_id"] ==  $row["ID"]) ? "Enrolled" : "Enroll" ?>
+                        <?php echo (isset($enrolled["Course_id"])) ? "Enrolled" : "Enroll" ?>
 
                       </a>
                     </h3>
