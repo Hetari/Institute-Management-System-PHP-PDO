@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 21, 2023 at 12:22 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jan 19, 2024 at 07:17 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -127,7 +127,7 @@ INSERT INTO `subjects` (`ID`, `Name`, `Shortcut`) VALUES
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `Img_url` varchar(255) NOT NULL,
+  `Img_url` varchar(255) DEFAULT NULL,
   `Username` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Phone` varchar(30) DEFAULT NULL,
@@ -144,7 +144,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `Name`, `Img_url`, `Username`, `Email`, `Phone`, `Password`, `Gender`, `Is_active`, `Role_id`, `Created_at`) VALUES
 (9, 'Brhoome Hetari', '16976624901.png', 'brhoom', 'q@q.com', '123456789', '$2y$10$Wtmp/OVB/hajCFpP3L876OOqo9aheOdb4qhmBbM7I9HwetwAajdaW', 1, 1, 1, '2023-10-05 19:41:09'),
-(29, 'Test Test', '1697570769Screenshot from 2023-10-15 17-01-45.png', 'qwerw', 'qw@qw.com', '123456789', '$2y$10$tWypcH8HJ7OX5VjrSypec.GkKnV2ZhXX/GXd8Ia/0Xn.aDXKo7nEe', 2, 0, 2, '2023-10-17 19:26:09');
+(29, 'Test Test', '1697570769Screenshot from 2023-10-15 17-01-45.png', 'qwerw12222', 'qw@qw.com', '123456789', '$2y$10$tWypcH8HJ7OX5VjrSypec.GkKnV2ZhXX/GXd8Ia/0Xn.aDXKo7nEe', 2, 0, 2, '2023-10-17 19:26:09'),
+(30, 'Hazim Hetari', NULL, 'akjdhfk', 'w@Wwww.com', '123233232', '$2y$10$KKV5svI9iag38crugnRa0OfNLKvv.N.hEyWhgkD5ZWHG0L1zTPi2S', 1, 1, 2, '2024-01-19 18:17:16');
 
 --
 -- Indexes for dumped tables
@@ -244,7 +245,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
